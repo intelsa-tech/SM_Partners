@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Assessment — Skilled Intake Specialist | SMDigital</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #ff9345;
+    --green: #a9d944;
+    --dark: #414c4c;
+    --gray-light: #f7f8f6;
+    --gray-mid: #e8ebe8;
+    --gray-text: #6b7575;
+    --white: #ffffff;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f0;
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* ── TOP NAV ── */
+  .top-nav {
+    position: sticky; top: 0; z-index: 30;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-mid);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .top-nav-inner {
+    max-width: 980px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: stretch; justify-content: space-between;
+  }
+  .brand-block {
+    display: flex; align-items: center; gap: 10px; padding: 14px 0; flex-shrink: 0;
+  }
+  .brand-dot {
+    width: 30px; height: 30px; border-radius: 3px;
+    background: var(--orange);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .brand-dot span { color: #fff; font-size: 13px; font-weight: 700; }
+  .brand-name { font-size: 12px; font-weight: 600; color: var(--dark); line-height: 1.2; }
+  .brand-sub  { font-size: 10px; color: var(--gray-text); }
+
+  .role-info {
+    display: flex; align-items: center; gap: 12px; padding: 14px 0;
+  }
+  .role-title-top { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .role-sub-top   { font-size: 11px; color: var(--gray-text); }
+  .role-badge-top {
+    background: var(--orange); color: #fff;
+    font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 3px;
+    letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+  }
+
+  /* ── CANDIDATE SUB-NAV ── */
+  .candidate-nav-bar {
+    position: sticky; top: 59px; z-index: 20;
+    background: var(--gray-light);
+    border-bottom: 1px solid var(--gray-mid);
+  }
+  .candidate-nav-inner {
+    max-width: 980px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: stretch; overflow-x: auto; gap: 0;
+    scrollbar-width: none;
+  }
+  .candidate-nav-inner::-webkit-scrollbar { display: none; }
+  .candidate-tab {
+    cursor: pointer; border: none; background: none;
+    font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500;
+    color: var(--gray-text);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .candidate-tab:hover { color: var(--dark); }
+  .candidate-tab.active { color: var(--orange); border-bottom-color: var(--orange); font-weight: 600; }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 980px; margin: 0 auto; padding: 32px 24px 80px;
+  }
+
+  /* ── PROFILE HEADER CARD ── */
+  .profile-header {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .profile-strip        { height: 4px; background: var(--orange); }
+  .profile-strip.green  { background: var(--green); }
+  .profile-strip.mid    { background: #ffc080; }
+
+  .profile-head-inner {
+    padding: 24px 28px;
+    display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;
+  }
+  .avatar-circle {
+    width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+  }
+  .av-orange { background: #fff0e5; color: var(--orange); }
+  .av-green  { background: #f2f9e5; color: #5a8f1a; }
+  .av-blue   { background: #e8f4ff; color: #2a6fa8; }
+  .av-mid    { background: #ffece0; color: #b56a1e; }
+
+  .profile-info { flex: 1; min-width: 0; }
+  .head-name     { font-size: 20px; font-weight: 700; color: var(--dark); }
+  .head-title    { font-size: 12px; color: var(--gray-text); margin-top: 2px; }
+  .head-location { font-size: 12px; color: var(--gray-text); margin-top: 1px; }
+
+  .profile-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  .score-circle {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 2.5px solid var(--orange);
+  }
+  .score-circle.green-border { border-color: var(--green); }
+  .score-circle.mid-border   { border-color: #ffc080; }
+  .score-num   { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1; }
+  .score-denom { font-size: 10px; color: var(--gray-text); }
+
+  .rec-badge { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .rec-strong  { background: var(--orange); color: #fff; }
+  .rec-solid   { background: var(--green); color: #2e5500; }
+  .rec-consider { background: #fff0e5; color: #8a4000; border: 1px solid var(--orange); }
+
+  /* ── TAGS ── */
+  .tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 3px; border: 1px solid var(--gray-mid); color: var(--gray-text); font-weight: 500; }
+  .tag-pos { border-color: var(--green); color: #3e6b0e; background: #f5fbea; }
+  .tag-neg { border-color: #f5c0c0; color: #a32d2d; background: #fff5f5; }
+  .tag-neu { border-color: #c8d8f0; color: #2a6fa8; background: #eef6ff; }
+
+  /* ── CONTENT GRID ── */
+  .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .content-grid { grid-template-columns: 1fr; } }
+
+  .content-card { background: var(--white); border: 1px solid var(--gray-mid); border-radius: 3px; padding: 20px 22px; }
+  .content-card.full { grid-column: 1 / -1; }
+
+  .section-label {
+    font-size: 10px; font-weight: 600; color: var(--orange);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+  }
+
+  /* info table */
+  .info-table { width: 100%; }
+  .info-table tr td { padding: 4px 0; font-size: 13px; }
+  .info-table tr td:first-child { color: var(--gray-text); width: 50%; }
+  .info-table tr td:last-child  { font-weight: 500; color: var(--dark); }
+
+  /* bars */
+  .bar-item { margin-bottom: 10px; }
+  .bar-top { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .bar-name { font-size: 12px; color: var(--dark); font-weight: 500; }
+  .bar-val  { font-size: 12px; font-weight: 600; color: var(--orange); }
+  .bar-val.green-val { color: #5a8f1a; }
+  .bar-track { height: 6px; background: var(--gray-mid); border-radius: 3px; overflow: hidden; }
+  .bar-fill  { height: 100%; border-radius: 3px; background: var(--orange); }
+  .bar-fill.gfill { background: var(--green); }
+
+  /* insights */
+  .insight-block { margin-bottom: 14px; }
+  .insight-title { font-size: 12px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .insight-text  { font-size: 12px; color: var(--gray-text); line-height: 1.6; }
+
+  /* divider inside grid */
+  .col-divider { grid-column: 1 / -1; border: none; border-top: 1px solid var(--gray-mid); }
+
+  /* verdict */
+  .verdict-box {
+    grid-column: 1 / -1;
+    background: var(--gray-light);
+    border-left: 3px solid var(--orange);
+    padding: 14px 16px;
+    border-radius: 0 3px 3px 0;
+  }
+  .verdict-box.green-l { border-left-color: var(--green); }
+  .verdict-box p { font-size: 13px; color: var(--dark); line-height: 1.65; }
+
+  /* watch box */
+  .watch-box {
+    grid-column: 1 / -1;
+    background: #fff8f3; border: 1px solid #ffd4a8;
+    padding: 12px 16px; border-radius: 3px;
+  }
+  .watch-title { font-size: 11px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .watch-list  { list-style: none; }
+  .watch-list li {
+    font-size: 12px; color: #7a4a10; line-height: 1.5;
+    padding: 2px 0 2px 14px; position: relative;
+  }
+  .watch-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-size: 10px; top: 3px; }
+
+  /* video */
+  .video-card { grid-column: 1 / -1; }
+  .video-wrap { margin-top: 10px; }
+  .video-wrap video { width: 100%; border-radius: 3px; background: #000; display: block; }
+
+  /* footer */
+  .page-footer {
+    max-width: 980px; margin: 40px auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    padding: 20px 24px 0;
+    border-top: 1px solid var(--gray-mid);
+  }
+  .footer-note { font-size: 11px; color: var(--gray-text); }
+  .footer-brand { display: flex; align-items: center; gap: 8px; }
+  .footer-brand span { font-size: 11px; font-weight: 600; color: var(--orange); }
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<div class="top-nav">
+  <div class="top-nav-inner">
+    <div class="brand-block">
+      <div class="brand-dot"><span>In</span></div>
+      <div>
+        <div class="brand-name">Intelsa BPO &amp; CX</div>
+        <div class="brand-sub">Recruitment Services</div>
+      </div>
+    </div>
+    <div class="role-info">
+      <div>
+        <div class="role-title-top">Skilled Intake Specialist</div>
+        <div class="role-sub-top">Financial Account — Pre-Settlement Funding · SMDigital</div>
+      </div>
+      <div class="role-badge-top">Interview Assessment</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CANDIDATE TABS ── -->
+<div class="candidate-nav-bar">
+  <div class="candidate-nav-inner" id="candidateTabs"></div>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="page-body" id="pageBody"></div>
+
+<!-- ── FOOTER ── -->
+<div class="page-footer">
+  <div class="footer-note">Assessment prepared by Intelsa BPO &amp; CX Recruitment · June 2026 · Confidential</div>
+  <div class="footer-brand">
+    <div class="brand-dot" style="width:22px;height:22px;"><span style="font-size:9px">In</span></div>
+    <span>intelsa.com</span>
+  </div>
+</div>
+
+<script>
+const candidates = [
+  {
+    id: "victor",
+    name: "Victor Talavera",
+    strip: "",
+    avatarClass: "av-orange",
+    initials: "VT",
+    fullName: "Victor Hugo Talavera Goussen",
+    title: "Intake Team Supervisor · Personal Injury Law",
+    location: "Nicaragua · Bilingual EN/ES",
+    scoreVal: "9",
+    scoreClass: "",
+    recClass: "rec-strong",
+    recLabel: "Highly Recommended",
+    tags: [
+      { label: "3+ yrs PI legal intake", cls: "tag-pos" },
+      { label: "Promoted to Supervisor", cls: "tag-pos" },
+      { label: "Pacin Levine (PI firm)", cls: "tag-pos" },
+      { label: "CRM & audit expertise", cls: "tag-pos" },
+      { label: "Bilingual EN/ES", cls: "tag-neu" }
+    ],
+    profileRows: [
+      ["Years of Experience", "9+ years (BPO + legal)"],
+      ["Legal Intake (direct)", "3+ years (Pacin Levine, PI)"],
+      ["Career Progression", "File Opener → Follow-Up → Supervisor"],
+      ["Languages", "Spanish (Native) · English (Fluent)"],
+      ["CRM Tools", "DocuSign, Webex, Outlook (3 accounts), internal CRM"],
+      ["Prior Experience", "Concentrix (tech support), Accedo (CS)"]
+    ],
+    bars: [
+      { label: "Empathy & Client Handling",    val: "7/10", pct: 70, green: false },
+      { label: "Role-Specific Knowledge",       val: "9/10", pct: 90, green: false },
+      { label: "Attention to Detail",           val: "9/10", pct: 90, green: false },
+      { label: "Organization & Prioritization", val: "8/10", pct: 80, green: false },
+      { label: "English Communication",         val: "7/10", pct: 70, green: false },
+      { label: "Culture & Values Fit",          val: "8/10", pct: 80, green: false }
+    ],
+    insights: [
+      { title: "English Level", text: "Fluent and functional throughout the interview. Handles complex legal terminology (contingency fee agreements, HIPAA, intake sheets, DocuSign) with ease. Some pacing hesitations and self-corrections, but content is delivered clearly. Accent is neutral and understandable for US clients. Ready for client-facing calls with light polish." },
+      { title: "Communication Skills", text: "Detailed and process-oriented. His opening walk-through of the file opener → follow-up → supervisor progression is comprehensive and shows deep familiarity with each role's workflow. He explains through concrete steps rather than abstractions, which reflects how he actually works." },
+      { title: "Client Handling & Empathy", text: "Solid but more procedural than emotional. When asked about a frustrated client, he described his approach as: fully understand the reason, explain what can be done, and set realistic expectations. Effective, but leans on process over empathic connection. This is a coachable gap given his strong technical intake foundation." },
+      { title: "Attention to Detail", text: "This is his strongest quality. Explicitly stated it has been the priority in every role. Gave a concrete example from Concentrix where mis-assigning a case would have breached SLA. In legal intake, he double-checks everything and explicitly said \"every detail matters on the law firm.\" This aligns tightly with SMDigital's brief." },
+      { title: "Strengths", text: "Rare direct fit — Victor worked at the same firm (Pacin Levine) as Karina and progressed to Supervisor. He has hands-on experience with case documentation (HIPAA, contingency agreements), client sign-ups via DocuSign, CRM case opening, referrals to other firms, and full team management (auditing, transcript reviews, coaching intakers). This is exactly the workflow SMDigital describes." },
+      { title: "Areas for Improvement", text: "The final \"culture-fit\" question was cut short by the AI but his response emphasized \"if I like something, I can definitely do it\" — process-driven motivation rather than mission-driven. In a role serving injured clients in financial distress, the emotional connection should be probed further in the full interview." }
+    ],
+    watchItems: [
+      "Probe the empathetic dimension — his client-handling answer stayed at the procedural level. In the full interview, ask him to describe a moment when a client's emotional state shifted his approach, not just his script.",
+      "Confirm reason for leaving Pacin Levine (his role ended May 2026 per CV) — was it end of contract, career growth, or something else? This is a stability check.",
+      "Verify he can operate independently on the pre-settlement funding vertical specifically — his experience is PI-heavy but funding-specific exposure is unclear."
+    ],
+    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/3SpnlaqZ0ArjZMT29xWy/1780532951668",
+    verdictClass: "",
+    verdict: "<strong>Recommendation:</strong> Highly recommended. Victor brings unusually strong role-specific alignment — 3+ years at Pacin Levine, where he progressed from File Opener to Follow-Up to Intake Supervisor. His hands-on familiarity with contingency fee agreements, HIPAA documentation, DocuSign client sign-ups, CRM case opening, referral routing, and team auditing maps directly to the workflows in the SMDigital brief. His attention to detail is exceptional and consistently demonstrated across multiple examples. The main area to probe is the emotional/mission-driven side of client interaction — his answers lean procedural. If that resonates in the full interview, he's a strong top-tier candidate for the role."
+  },
+  {
+    id: "alejandro",
+    name: "Alejandro Lopez",
+    strip: "mid",
+    avatarClass: "av-blue",
+    initials: "AL",
+    fullName: "Alejandro Lopez",
+    title: "Legal Assistant / Case Manager · BPO Industry",
+    location: "Pereira, Colombia · English C1",
+    scoreVal: "8",
+    scoreClass: "mid-border",
+    recClass: "rec-consider",
+    recLabel: "Recommend — Verify depth",
+    tags: [
+      { label: "10 yrs experience", cls: "tag-pos" },
+      { label: "PI legal assistant (3 yrs)", cls: "tag-pos" },
+      { label: "Intake + litigation phases", cls: "tag-pos" },
+      { label: "Bilingual EN/ES", cls: "tag-neu" }
+    ],
+    profileRows: [
+      ["Years of Experience", "10 years (BPO + legal)"],
+      ["Legal Intake (direct)", "~3 years (PI, pre-litigation)"],
+      ["Languages", "Spanish (Native) · English (C1)"],
+      ["Last Role", "Legal Assistant (PI law firm)"],
+      ["Background", "CX, collections, sales + legal"],
+      ["Location", "Colombia (Intelsa proximity)"]
+    ],
+    bars: [
+      { label: "Empathy & Client Handling",    val: "8/10", pct: 80, green: false },
+      { label: "Role-Specific Knowledge",       val: "8/10", pct: 80, green: false },
+      { label: "Attention to Detail",           val: "8/10", pct: 80, green: false },
+      { label: "Organization & Prioritization", val: "7/10", pct: 70, green: false },
+      { label: "English Communication",         val: "7/10", pct: 70, green: false },
+      { label: "Culture & Values Fit",          val: "7/10", pct: 70, green: false }
+    ],
+    insights: [
+      { title: "English Level", text: "Communicates clearly and is well understood throughout. Some filler words and informal phrasing (\"like, going with her\"), but ideas come across without confusion. Would benefit from refinement for client-facing US calls — not a disqualifier, but worth noting for coaching." },
+      { title: "Communication Skills", text: "Genuine and relatable communication style. Builds rapport naturally. In the client scenario, he described staying with the client \"step by step\" which reflects the right instinct. However, some answers trailed off or were cut short — could be nerves or interview pacing." },
+      { title: "Client Handling & Empathy", text: "Provided a strong real-world example: a post-accident client who kept escalating despite repeated explanations. His approach — patience, rephrasing, walking through the process differently — demonstrates adaptive empathy. Correctly identifies acknowledging the situation before problem-solving." },
+      { title: "Strengths", text: "Hands-on PI legal experience covering intake through litigation. Strong document-handling background (medical records, billing, contracts). Describes using personal notes + case notes for follow-up management — a practical, structured workflow. Colombia location is operationally favorable for Intelsa." },
+      { title: "Areas for Improvement", text: "Culture-fit question (\"what interests you about this role\") was notably weak — he cited working remotely and independently as primary motivators, rather than client impact or mission. This is a soft flag in a role that requires genuine care for people in crisis." }
+    ],
+    watchItems: [
+      "Motivation answer flagged: he cited remote work autonomy as the main draw — probe for genuine empathy with clients in financial/legal distress.",
+      "Clarify exact intake vs. case management split in his last PI role — JD needs a first-contact specialist, not a downstream case handler.",
+      "Stability: verify tenure and reason for leaving his last position before advancing."
+    ],
+    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/k72j99JLTIybUdRyuunK/1780525037176",
+    verdictClass: "",
+    verdict: "<strong>Recommendation:</strong> Recommended, with reservations. Alejandro brings real PI legal experience and a genuinely empathetic handling style, backed by a concrete client example. His main risk is the culture-fit gap surfaced in the final question — when asked about his interest in supporting clients through legal challenges, he focused on remote work benefits rather than the human dimension. For a role where SMDigital explicitly screens for emotional intelligence and genuine care, this needs probing. Strong candidate if the full interview resolves this concern."
+  },
+  {
+    id: "myrtha",
+    name: "Myrtha Chery",
+    strip: "green",
+    avatarClass: "av-green",
+    initials: "MC",
+    fullName: "Myrtha Chery",
+    title: "Legal Intake Specialist · PI / Immigration / Criminal / Divorce",
+    location: "Santo Domingo, Dominican Republic · 4 Languages",
+    scoreVal: "8",
+    scoreClass: "green-border",
+    recClass: "rec-solid",
+    recLabel: "Recommended",
+    tags: [
+      { label: "PI intake active", cls: "tag-pos" },
+      { label: "4 languages (EN/ES/FR/Creole)", cls: "tag-pos" },
+      { label: "High empathy profile", cls: "tag-pos" },
+      { label: "Recent intake start (2024)", cls: "tag-neg" }
+    ],
+    profileRows: [
+      ["Years of Experience", "Mixed background (8+ total)"],
+      ["Legal Intake (direct)", "~1.5 yrs (PI, immigration, criminal)"],
+      ["Languages", "EN · ES · FR · Haitian Creole"],
+      ["Last Role", "Intake Specialist (PI law firm)"],
+      ["CRM Tools", "Filevine, Cleo, Neos, Salesforce, DocuSign"],
+      ["Location", "Dominican Republic (remote)"]
+    ],
+    bars: [
+      { label: "Empathy & Client Handling",    val: "10/10", pct: 100, green: true },
+      { label: "Role-Specific Knowledge",       val: "8/10",  pct: 80,  green: true },
+      { label: "Attention to Detail",           val: "9/10",  pct: 90,  green: true },
+      { label: "Organization & Prioritization", val: "8/10",  pct: 80,  green: true },
+      { label: "English Communication",         val: "7/10",  pct: 70,  green: true },
+      { label: "Culture & Values Fit",          val: "10/10", pct: 100, green: true }
+    ],
+    insights: [
+      { title: "English Level", text: "Functional and enthusiastic, but the most verbally complex of the three — longer sentences, more filler, occasional repetition (\"I do love… I do love…\"). Ideas are clear and content is strong, but the communication style may feel verbose to a US attorney expecting concise intake. Coaching would tighten this significantly." },
+      { title: "Communication Skills", text: "Highly expressive and personable. She narrates client stories with genuine investment — the interview itself demonstrates her ability to hold attention and build trust. The verbosity that works in a rapport-building context could be a challenge in high-volume intake where efficiency matters." },
+      { title: "Client Handling & Empathy", text: "Outstanding. Her detailed account of the frustrated client waiting a week for a follow-up — acknowledging the emotion, sending a confirmation text, following up with co-counsel — is exactly the ownership SMDigital's brief describes. She instinctively acts on behalf of the client without being asked. Highest empathy score in the pool." },
+      { title: "Strengths", text: "Four languages is a genuine differentiator for a bilingual-focused client. Deep understanding of intake detail importance (\"if I miss one small detail, the case can turn down\"). Proactive follow-up and documentation mindset. Authentic motivation — she talks about helping people and growing the pipeline with equal enthusiasm." },
+      { title: "Areas for Improvement", text: "Direct legal intake experience is relatively recent (since 2024). Prior career spans hospitality, travel, and interpretation — strong CX background but not all in legal. English fluency under pressure could be tested further. A scripted intake call simulation would help confirm performance at volume." }
+    ],
+    watchItems: [
+      "Test communication conciseness under simulated high-volume intake conditions — give a timed mock intake call scenario.",
+      "Probe the depth of her PI intake knowledge: can she explain pre-settlement funding in her own words? How does she handle a case where the attorney is unresponsive?",
+      "Explore the career transitions pre-2023 — what drove the shift from hospitality/interpretation to legal intake? Is she anchored in this field?"
+    ],
+    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/2Q0IZzeSPgI7R908GpvP/1780525292069",
+    verdictClass: "green-l",
+    verdict: "<strong>Recommendation:</strong> Recommended. Myrtha's empathy profile and genuine ownership mentality are exceptional — arguably the strongest soft-skill fit in this pool. Her understanding of intake detail and documentation, combined with her proactive follow-up instincts, closely match what SMDigital describes in their culture brief. The main consideration is English fluency under speed: her style is expressive but verbose, which may need coaching for high-volume US intake calls. Her four-language capability is a real asset if the client handles Spanish-speaking or Haitian Creole-speaking claimants. Advance alongside Karina."
+  },
+  {
+    id: "adriana",
+    name: "Adriana Vargas",
+    strip: "green",
+    avatarClass: "av-green",
+    initials: "AV",
+    fullName: "Adriana José Vargas García",
+    title: "Data Analyst · Judicial System of Nicaragua",
+    location: "Nicaragua · English C2 Advanced",
+    scoreVal: "8",
+    scoreClass: "green-border",
+    recClass: "rec-solid",
+    recLabel: "Recommended",
+    tags: [
+      { label: "5 yrs Judicial Branch", cls: "tag-pos" },
+      { label: "Law degree (5th year)", cls: "tag-pos" },
+      { label: "English C2", cls: "tag-pos" },
+      { label: "Data + legal hybrid", cls: "tag-pos" },
+      { label: "Bilingual EN/ES", cls: "tag-neu" }
+    ],
+    profileRows: [
+      ["Years of Experience", "5+ years (Judicial Branch of Nicaragua)"],
+      ["Legal Intake (direct)", "Adjacent — legal documentation & case data"],
+      ["Languages", "Spanish (Native) · English (C2 Advanced)"],
+      ["Last Role", "Data Analyst — Judicial System (2020–2025)"],
+      ["Education", "Telematics Engineer + Law student (5th year)"],
+      ["Location", "Nicaragua (remote, US EST aligned)"]
+    ],
+    bars: [
+      { label: "Empathy & Client Handling",    val: "8/10", pct: 80, green: true },
+      { label: "Role-Specific Knowledge",       val: "7/10", pct: 70, green: true },
+      { label: "Attention to Detail",           val: "9/10", pct: 90, green: true },
+      { label: "Organization & Prioritization", val: "9/10", pct: 90, green: true },
+      { label: "English Communication",         val: "9/10", pct: 90, green: true },
+      { label: "Culture & Values Fit",          val: "8/10", pct: 80, green: true }
+    ],
+    insights: [
+      { title: "English Level", text: "Very strong. C2 self-reported and confirmed by the interview — natural cadence, rich vocabulary, minimal filler, complete sentences. Handles complex ideas fluidly (e.g. \"the experience reinforced the importance of patience and empathy\"). Fully ready for US client-facing intake calls with no coaching needed on fluency." },
+      { title: "Communication Skills", text: "Structured and articulate. Adriana consistently frames answers as: acknowledge the situation → describe her approach → tie it to outcome. Her introduction and client scenario answers show she can present herself professionally and stay on-topic. Warm and personable tone throughout." },
+      { title: "Client Handling & Empathy", text: "Strong instincts. Her example of the citizen frustrated over case deadlines shows she understands the fundamental truth: \"sometimes people just want to be heard.\" She led with active listening, explained the process clearly, then routed to the right department. This is the empathy-then-action pattern the SMDigital brief describes." },
+      { title: "Attention to Detail", text: "Outstanding — this is her defining strength. Her example of catching discrepancies in judicial case data across departments before submitting a report to judges/magistrates is exactly the kind of ownership this role needs. She caught the inconsistency, went back to source documents, verified with departments, then submitted an accurate report on time. Judicial-grade rigor." },
+      { title: "Strengths", text: "Unique hybrid profile — 5 years working directly for the Nicaraguan Judicial Branch supporting judges and magistrates, combined with a law degree in progress and a Telematics Engineering background. She understands legal documentation, procedural compliance, confidentiality, and data-driven reporting. C2 English + bilingual professional presence. Highly organized with practical experience prioritizing under judicial deadlines." },
+      { title: "Areas for Improvement", text: "No direct exposure to personal injury intake or pre-settlement funding specifically — her legal background is judicial/court-side, not law firm intake side. She'll need onboarding on the specific workflow (contingency agreements, DocuSign sign-ups, insurance verification). The gap is trainable given her legal foundation, but it's a real gap vs. candidates with active PI experience." }
+    ],
+    watchItems: [
+      "Confirm she understands the shift from judicial (court-side) work to plaintiff-side intake — these are different mindsets. Ask her how she'd approach representing the client's interest vs. serving neutrally as she did at the courts.",
+      "Probe her exposure to CRM tools (Filevine, Neos, Litify, etc.) — her CV mentions Microsoft Office but no legal CRM experience. Confirm learning curve tolerance.",
+      "Culture-fit answer was competent but somewhat generic (\"opportunity to help people while being part of an organized team\"). In the full interview, probe her specific motivation for pre-settlement funding — clients in financial distress waiting on legal outcomes.",
+      "Confirm her current status — CV shows her judicial role ended in 2025 and she's a 5th-year law student. Verify she is available for full-time, US EST schedule commitment."
+    ],
+    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/7pMMPDrkJW9GhkvPj2na/1780527738703",
+    verdictClass: "green-l",
+    verdict: "<strong>Recommendation:</strong> Recommended. Adriana brings a differentiated profile to this pool — 5 years supporting judges and magistrates at the Nicaraguan Judicial Branch, combined with a law degree in progress and C2 English. Her attention to detail is judicial-grade (her example of catching cross-department data discrepancies before a formal report is exemplary), and her communication is polished and professional. The consideration is that her legal experience is court-side, not law firm intake side — she'll need onboarding on PI-specific workflows like contingency agreements and pre-settlement funding. Advance to the full interview: her intellectual capacity, English fluency, and legal foundation suggest she'll ramp up quickly on the vertical-specific processes."
+  }
+];
+
+let currentId = candidates[0].id;
+
+function buildTabs() {
+  const nav = document.getElementById('candidateTabs');
+  nav.innerHTML = '';
+  candidates.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'candidate-tab' + (c.id === currentId ? ' active' : '');
+    btn.textContent = c.name;
+    btn.dataset.id = c.id;
+    btn.addEventListener('click', () => {
+      currentId = c.id;
+      document.querySelectorAll('.candidate-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render(c.id);
+    });
+    nav.appendChild(btn);
+  });
+}
+
+function render(id) {
+  const c = candidates.find(x => x.id === id);
+  if (!c) return;
+  const body = document.getElementById('pageBody');
+
+  const tagsHtml = c.tags.map(t => `<span class="tag ${t.cls}">${t.label}</span>`).join('');
+
+  const profileHtml = c.profileRows.map(([k,v]) =>
+    `<tr><td>${k}</td><td>${v}</td></tr>`
+  ).join('');
+
+  const barsHtml = c.bars.map(b => `
+    <div class="bar-item">
+      <div class="bar-top">
+        <span class="bar-name">${b.label}</span>
+        <span class="bar-val${b.green ? ' green-val' : ''}">${b.val}</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill${b.green ? ' gfill' : ''}" style="width:${b.pct}%"></div>
+      </div>
+    </div>
+  `).join('');
+
+  const insightsHtml = c.insights.map(i => `
+    <div class="insight-block">
+      <div class="insight-title">${i.title}</div>
+      <div class="insight-text">${i.text}</div>
+    </div>
+  `).join('');
+
+  const watchHtml = c.watchItems ? `
+    <div class="watch-box">
+      <div class="watch-title">Points to Probe in Full Interview</div>
+      <ul class="watch-list">
+        ${c.watchItems.map(w => `<li>${w}</li>`).join('')}
+      </ul>
+    </div>
+  ` : '';
+
+  body.innerHTML = `
+    <!-- PROFILE HEADER -->
+    <div class="profile-header">
+      <div class="profile-strip ${c.strip}"></div>
+      <div class="profile-head-inner">
+        <div class="avatar-circle ${c.avatarClass}">${c.initials}</div>
+        <div class="profile-info">
+          <div class="head-name">${c.fullName}</div>
+          <div class="head-title">${c.title}</div>
+          <div class="head-location">${c.location}</div>
+          <div class="tags-row">${tagsHtml}</div>
+        </div>
+        <div class="profile-right">
+          <div class="score-circle ${c.scoreClass}">
+            <span class="score-num">${c.scoreVal}</span>
+            <span class="score-denom">/ 10</span>
+          </div>
+          <span class="rec-badge ${c.recClass}">${c.recLabel}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+
+      <!-- Profile + Scores -->
+      <div class="content-card">
+        <div class="section-label">Candidate Profile</div>
+        <table class="info-table">${profileHtml}</table>
+        <hr style="border:none;border-top:1px solid var(--gray-mid);margin:16px 0;">
+        <div class="section-label">Interview Scores</div>
+        ${barsHtml}
+      </div>
+
+      <!-- Insights -->
+      <div class="content-card">
+        <div class="section-label">Interview Insights</div>
+        ${insightsHtml}
+      </div>
+
+      <!-- Watch box (conditional) -->
+      ${watchHtml}
+
+      <!-- Interview Recording -->
+      <div class="content-card video-card">
+        <div class="section-label">Interview Recording</div>
+        <div class="video-wrap">
+          <video src="${c.videoUrl}" controls preload="auto"></video>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict-box ${c.verdictClass}">
+        <p>${c.verdict}</p>
+      </div>
+
+    </div>
+  `;
+}
+
+buildTabs();
+render(currentId);
+</script>
+</body>
+</html>
