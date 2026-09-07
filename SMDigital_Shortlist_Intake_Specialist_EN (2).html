@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SM Digital · Intake Specialist Shortlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --intelsa-orange: #ff9345;
+  --intelsa-orange-hover: #e67d2d;
+  --intelsa-green: #a9d944;
+  --intelsa-dark: #414c4c;
+  --intelsa-bg: #ffffff;
+  --intelsa-muted-bg: #f7f7f7;
+  --intelsa-border: #e5e7e7;
+  --intelsa-gray: #8a9494;
+  --intelsa-radius: 3px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: var(--intelsa-dark);
+  background: var(--intelsa-muted-bg);
+  line-height: 1.55;
+}
+.container { max-width: 1240px; margin: 0 auto; padding: 40px 24px; }
+
+.hero {
+  background: #fff;
+  border-radius: 3px;
+  padding: 32px;
+  border-left: 6px solid var(--intelsa-orange);
+  margin-bottom: 24px;
+}
+.hero-brand { font-size: 11px; font-weight: 600; color: var(--intelsa-orange); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+.hero h1 { font-size: 28px; font-weight: 600; color: var(--intelsa-dark); margin: 0 0 6px; }
+.hero-sub { font-size: 14px; color: var(--intelsa-gray); }
+.hero-meta { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--intelsa-border); font-size: 13px; flex-wrap: wrap; }
+.hero-meta div span:first-child { color: var(--intelsa-gray); font-weight: 500; margin-right: 6px; }
+.hero-meta div span:last-child { font-weight: 600; color: var(--intelsa-dark); }
+
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.stat-tile { background: #fff; border: 1px solid var(--intelsa-border); border-radius: 3px; padding: 20px; }
+.stat-label { font-size: 11px; font-weight: 500; color: var(--intelsa-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-value { font-size: 32px; font-weight: 600; color: var(--intelsa-orange); margin: 8px 0 4px; }
+.stat-detail { font-size: 12px; font-weight: 500; color: var(--intelsa-dark); }
+
+.section-header { border-left: 4px solid var(--intelsa-orange); padding: 4px 0 4px 16px; margin: 32px 0 20px; }
+.section-header h2 { font-size: 22px; font-weight: 600; margin: 0; color: var(--intelsa-dark); }
+.section-header p { font-size: 13px; color: var(--intelsa-gray); margin: 4px 0 0; }
+
+.filters {
+  background: #fff; border: 1px solid var(--intelsa-border); border-radius: 3px; padding: 16px 20px;
+  display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap;
+}
+.filter-label { font-size: 12px; font-weight: 500; color: var(--intelsa-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; }
+.filter-btn {
+  background: transparent; border: 1.5px solid var(--intelsa-border); color: var(--intelsa-dark);
+  border-radius: 3px; padding: 8px 14px; font-family: inherit; font-weight: 500; font-size: 13px;
+  cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--intelsa-orange); color: var(--intelsa-orange); }
+.filter-btn.active { background: var(--intelsa-orange); border-color: var(--intelsa-orange); color: #fff; }
+.search-input {
+  border: 1px solid var(--intelsa-border); border-radius: 3px; padding: 8px 12px;
+  font-family: inherit; font-size: 13px; color: var(--intelsa-dark); flex: 1; min-width: 200px;
+}
+.search-input:focus { outline: none; border-color: var(--intelsa-orange); }
+
+.cards-grid { display: flex; flex-direction: column; gap: 20px; }
+.candidate-card {
+  background: #fff; border: 1px solid var(--intelsa-border); border-radius: 3px; padding: 24px;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.candidate-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); transform: translateY(-1px); }
+.card-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+.rank-badge { background: var(--intelsa-orange); color: #fff; font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 3px; flex-shrink: 0; }
+.card-title-block { flex: 1; }
+.candidate-name { font-size: 20px; font-weight: 600; margin: 0; color: var(--intelsa-dark); }
+.candidate-loc { font-size: 12px; color: var(--intelsa-gray); font-weight: 500; margin-top: 2px; }
+.score-block { padding: 10px 16px; border-radius: 3px; text-align: center; flex-shrink: 0; min-width: 90px; }
+.score-num { font-size: 28px; font-weight: 600; line-height: 1; }
+.score-tier { font-size: 10px; font-weight: 600; color: var(--intelsa-dark); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+.titular { font-size: 13px; color: var(--intelsa-dark); font-style: italic; padding: 12px 14px; background: var(--intelsa-muted-bg); border-radius: 3px; margin: 10px 0 14px; border-left: 3px solid var(--intelsa-border); }
+.current-role { font-size: 14px; margin-bottom: 16px; }
+.role-label { color: var(--intelsa-gray); font-weight: 500; margin-right: 6px; }
+.role-value { font-weight: 600; color: var(--intelsa-dark); }
+.role-sep { color: var(--intelsa-gray); margin: 0 6px; }
+.role-company { color: var(--intelsa-orange); font-weight: 600; }
+
+.fit-reasons { margin: 16px 0; }
+.fit-label { font-size: 11px; font-weight: 600; color: var(--intelsa-orange); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.fit-reasons ul { margin: 0; padding-left: 0; list-style: none; }
+.fit-reasons li { font-size: 13px; color: var(--intelsa-dark); padding: 4px 0; line-height: 1.5; }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0; padding: 16px 0; border-top: 1px solid var(--intelsa-border); border-bottom: 1px solid var(--intelsa-border); }
+.metric-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.metric-label { font-size: 11px; font-weight: 500; color: var(--intelsa-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+.metric-value { font-size: 13px; font-weight: 600; color: var(--intelsa-dark); }
+.bar-track { height: 6px; background: var(--intelsa-border); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; transition: width 0.4s; }
+.metric-detail { font-size: 11px; color: var(--intelsa-gray); margin-top: 4px; font-weight: 500; }
+
+.card-footer { font-size: 12px; color: var(--intelsa-gray); margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.footer-link { color: var(--intelsa-dark); text-decoration: none; font-weight: 500; }
+.linkedin-link { color: var(--intelsa-orange); font-weight: 700; }
+.footer-sep { color: var(--intelsa-border); margin: 0 6px; }
+
+.decision-bar {
+  position: sticky; top: 0; z-index: 50;
+  background: #fff; border: 1px solid var(--intelsa-border); border-radius: 3px;
+  padding: 14px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 18px;
+  flex-wrap: wrap; box-shadow: 0 2px 12px rgba(65,76,76,0.08);
+}
+.decision-bar-title { font-size: 13px; font-weight: 600; color: var(--intelsa-dark); margin-right: auto; white-space: nowrap; }
+.decision-bar-note { flex-basis: 100%; font-size: 11px; color: var(--intelsa-gray); margin-top: -4px; }
+.decision-count { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--intelsa-dark); white-space: nowrap; }
+.decision-count .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.decision-count.advance .dot { background: var(--intelsa-green); }
+.decision-count.hold .dot { background: var(--intelsa-orange); }
+.decision-count.reject .dot { background: #c0392b; }
+.decision-count.pending .dot { background: var(--intelsa-gray); }
+.decision-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.decision-action-btn {
+  background: var(--intelsa-orange); color: #fff; border: none; border-radius: 3px;
+  padding: 12px 24px; font-family: inherit; font-weight: 500; font-size: 12px; cursor: pointer;
+}
+.decision-action-btn.secondary { background: transparent; color: var(--intelsa-dark); border: 1.5px solid var(--intelsa-border); }
+.decision-action-btn:hover { opacity: 0.9; }
+
+.decision-widget { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--intelsa-border); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.decision-label { font-size: 11px; font-weight: 600; color: var(--intelsa-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+.decision-btn {
+  border: 1.5px solid var(--intelsa-border); background: #fff; color: var(--intelsa-dark);
+  border-radius: 3px; padding: 7px 14px; font-family: inherit; font-weight: 500; font-size: 12px; cursor: pointer; transition: all 0.15s;
+}
+.decision-btn:hover { border-color: var(--intelsa-orange); }
+.decision-btn.advance.active { background: var(--intelsa-green); border-color: var(--intelsa-green); color: #fff; }
+.decision-btn.hold.active { background: var(--intelsa-orange); border-color: var(--intelsa-orange); color: #fff; }
+.decision-btn.reject.active { background: #c0392b; border-color: #c0392b; color: #fff; }
+
+.candidate-card.decision-advance { border-left: 4px solid var(--intelsa-green); }
+.candidate-card.decision-hold { border-left: 4px solid var(--intelsa-orange); }
+.candidate-card.decision-reject { opacity: 0.55; }
+.candidate-card.decision-reject .rank-badge { background: var(--intelsa-gray); }
+
+.decision-cell { display: flex; gap: 4px; justify-content: center; }
+.decision-mini-btn {
+  border: 1.5px solid var(--intelsa-border); background: #fff; color: var(--intelsa-dark);
+  border-radius: 3px; width: 26px; height: 26px; font-size: 12px; cursor: pointer; line-height: 1;
+}
+.decision-mini-btn:hover { border-color: var(--intelsa-orange); }
+.decision-mini-btn.advance.active { background: var(--intelsa-green); border-color: var(--intelsa-green); color: #fff; }
+.decision-mini-btn.hold.active { background: var(--intelsa-orange); border-color: var(--intelsa-orange); color: #fff; }
+.decision-mini-btn.reject.active { background: #c0392b; border-color: #c0392b; color: #fff; }
+tr.decision-advance { background: #f6fbee !important; }
+tr.decision-hold { background: #fff5ec !important; }
+tr.decision-reject { opacity: 0.5; }
+
+.data-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 3px; overflow: hidden; font-size: 13px; }
+.data-table thead tr { background: var(--intelsa-orange); color: #fff; }
+.data-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 12px 14px; border-bottom: 1px solid var(--intelsa-border); vertical-align: middle; }
+.data-table td.center { text-align: center; }
+.data-table tbody tr:hover { background: var(--intelsa-muted-bg); }
+.data-table tbody tr:nth-child(even) { background: #fafafa; }
+.data-table tbody tr:nth-child(even):hover { background: var(--intelsa-muted-bg); }
+.rank-cell { font-weight: 600; color: var(--intelsa-orange); }
+.table-sub { color: var(--intelsa-gray); font-size: 11px; font-weight: 500; }
+.pill { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.data-table a { color: var(--intelsa-orange); font-weight: 700; text-decoration: none; }
+
+details { margin-top: 32px; }
+details summary {
+  cursor: pointer; background: #fff; border: 1px solid var(--intelsa-border); border-radius: 3px;
+  padding: 16px 20px; font-weight: 600; color: var(--intelsa-dark); list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "▾"; color: var(--intelsa-orange); font-size: 18px; }
+details[open] summary { border-bottom: 3px solid var(--intelsa-orange); border-radius: 3px 3px 0 0; }
+details[open] summary::after { content: "▴"; }
+details .details-body { background: #fff; border: 1px solid var(--intelsa-border); border-top: none; padding: 20px; border-radius: 0 0 3px 3px; }
+
+.methodology { background: #fff; border: 1px solid var(--intelsa-border); border-radius: 3px; padding: 20px 24px; margin-top: 20px; font-size: 13px; }
+.methodology h4 { margin: 0 0 12px; font-weight: 600; color: var(--intelsa-orange); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.methodology ul { margin: 0; padding-left: 18px; }
+.methodology li { margin: 4px 0; color: var(--intelsa-dark); }
+.methodology li strong { color: var(--intelsa-orange); }
+
+.footer {
+  border-top: 1px solid var(--intelsa-border); padding: 20px 24px; margin-top: 40px;
+  font-size: 11px; color: var(--intelsa-gray); text-align: center;
+}
+
+@media (max-width: 900px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-header { flex-wrap: wrap; }
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 8px 10px; }
+  .decision-bar { position: static; }
+  .decision-bar-title { margin-right: 0; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-brand">Intelsa BPO &amp; CX · Recruitment shortlist</div>
+    <h1>SM Digital · Skilled Intake Specialist</h1>
+    <div class="hero-sub">Financial Account (Pre-Settlement Funding) · Full-Time · 100% Remote · US Eastern Time</div>
+    <div class="hero-meta">
+      <div><span>Report date:</span><span>Sep 07, 2026</span></div>
+      <div><span>Source:</span><span>LinkedIn Recruiter (ATS export)</span></div>
+      <div><span>Job ID:</span><span>4417263190</span></div>
+      <div><span>SOW:</span><span>SM-2026-001</span></div>
+    </div>
+  </div>
+
+  <div class="decision-bar">
+    <div class="decision-bar-title">📋 Client interview decisions</div>
+    <div class="decision-count advance"><span class="dot"></span>Advance: <strong id="count-advance">0</strong></div>
+    <div class="decision-count hold"><span class="dot"></span>On hold: <strong id="count-hold">0</strong></div>
+    <div class="decision-count reject"><span class="dot"></span>Not this round: <strong id="count-reject">0</strong></div>
+    <div class="decision-count pending"><span class="dot"></span>Pending: <strong id="count-pending">0</strong></div>
+    <div class="decision-actions">
+      <button class="decision-action-btn secondary" onclick="copyDecisionSummary()">📋 Copy summary</button>
+      <button class="decision-action-btn" onclick="downloadDecisionSummary()">⬇ Export selections</button>
+      <button class="decision-action-btn secondary" onclick="resetDecisions()">↺ Reset</button>
+    </div>
+    <div class="decision-bar-note">Use the ✓ / ? / ✕ buttons on each candidate below to mark who should move to the English interview. Your selections save automatically in this browser — click "Export selections" to send your final list to Intelsa.</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-tile">
+      <div class="stat-label">Total applicants</div>
+      <div class="stat-value">112</div>
+      <div class="stat-detail">83 active · 29 archived</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-label">FIT Excellent (85+)</div>
+      <div class="stat-value">15</div>
+      <div class="stat-detail">Meet all hard criteria</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-label">FIT Strong (70-84)</div>
+      <div class="stat-value">30</div>
+      <div class="stat-detail">Strong with minor gaps</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-label">Presented here</div>
+      <div class="stat-value">10</div>
+      <div class="stat-detail">Balanced Top 10 shortlist</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>Top 10 candidates · Recommended shortlist</h2>
+    <p>Sorted by FIT score. Every profile clears the minimum bar: Professional English or higher, some intake / legal / financial background, and a reasonable salary expectation.</p>
+  </div>
+
+  <div class="filters">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" data-filter="all">All (10)</button>
+    <button class="filter-btn" data-filter="Excellent">Excellent</button>
+    <button class="filter-btn" data-filter="Strong">Strong</button>
+    <input type="text" class="search-input" id="search-input" placeholder="Search by name...">
+  </div>
+
+  <div class="cards-grid" id="cards-container">
+    
+    <div class="candidate-card" data-tier="Excellent" data-score="97" data-name="josseline aquino">
+      <div class="card-header">
+        <div class="rank-badge">#1</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Josseline Aquino</h3>
+          <div class="candidate-loc">San Salvador, San Salvador, El Salvador</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">97</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Bilingual Intake Specialist | Client Operations Specialist | SME Consultant </div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Bilingual Intake Specialist</span>
+        <span class="role-sep">@</span><span class="role-company">Virtual Latinos</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ 3.0 years of legal Intake experience</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>✓ Current role fits: Current Intake role (legal context)</li><li>✓ Salary expectation in range ($900)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">3.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">22/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Current Intake role (legal context)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$900</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:aquinoalfaro.j@hotmail.com" class="footer-link">📧 aquinoalfaro.j@hotmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +50375027325</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/josseline-aquino-849391292" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-1">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-1','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-1','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-1','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="95" data-name="alejandro losada">
+      <div class="card-header">
+        <div class="rank-badge">#2</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Alejandro Losada</h3>
+          <div class="candidate-loc">Bogotá, Distrito Capital, Colombia</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">95</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Bilingual Case Manger/Legal Assistant | Personal Injury &amp; MVA | Demand Drafting | Filevine, CloudLex, Clio | AI legal tools | Experience working with U.S.-based Law Firms in remote</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Legal Assistant </span>
+        <span class="role-sep">@</span><span class="role-company">Alexander Shunnarah Trial Attorneys</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ Direct background in Personal Injury / Pre-Litigation</li><li>✓ 3.0 years of legal Intake experience</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>~ Case Manager / Paralegal at law firm</li><li>✓ Salary expectation in range ($1,500)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">3.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">20/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Case Manager / Paralegal at law firm</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,500</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:alejoolsen@hotmail.com" class="footer-link">📧 alejoolsen@hotmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +573223789859</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/alejandro-losada-262411271" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-2">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-2','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-2','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-2','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="94" data-name="axcel aaron lara espinoza">
+      <div class="card-header">
+        <div class="rank-badge">#3</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Axcel Aaron Lara Espinoza</h3>
+          <div class="candidate-loc">Managua, Nicaragua</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">94</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Intake Reviewer, Intake Specialist, Sales (inbound and outbound), Retention.</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Programa de liderazgo</span>
+        <span class="role-sep">@</span><span class="role-company">Sitel</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ 3.0 years of legal Intake experience</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>✓ Current role fits: Current Intake role (legal context)</li><li>~ Salary on the higher end but workable ($1,800)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">3.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">22/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Current Intake role (legal context)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">12/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,800</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:axllemar7@gmail.com" class="footer-link">📧 axllemar7@gmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +50578118035</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/axcel-aaron-lara-espinoza-181032203" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-3">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-3','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-3','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-3','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="93" data-name="piero vásquez">
+      <div class="card-header">
+        <div class="rank-badge">#4</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Piero Vásquez</h3>
+          <div class="candidate-loc">Perú</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">93</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Legal Intake specialist en Raffi Associates</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">International Business Prospecting Associate(B2B)</span>
+        <span class="role-sep">@</span><span class="role-company">non exclusive independent contractor</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ Direct background in Personal Injury / Pre-Litigation</li><li>✓ 2.0 years in legal Intake</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>✓ Current role fits: Current Intake role at US law firm</li><li>✓ Salary expectation in range ($1,000)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">18/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#ff9345;"></div></div>
+          <div class="metric-detail">2.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Current Intake role at US law firm</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,000</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:pieroerick2002@gmail.com" class="footer-link">📧 pieroerick2002@gmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +51955895719</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/piero-vásquez-325b85219" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-4">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-4','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-4','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-4','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="92" data-name="denisse tejeda">
+      <div class="card-header">
+        <div class="rank-badge">#5</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Denisse Tejeda</h3>
+          <div class="candidate-loc">República Dominicana</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">92</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Legal Assistant Immigration Law-Personal Injury</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Legal Assistant – Personal Injury Law</span>
+        <span class="role-sep">@</span><span class="role-company">Paralegal Institute</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ Direct background in Personal Injury / Pre-Litigation</li><li>✓ 5.0 years of legal Intake experience</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>~ Case Manager / Legal Assistant</li><li>✓ Salary expectation in range ($1,500)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">5.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">17/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ff9345;"></div></div>
+          <div class="metric-detail">Case Manager / Legal Assistant</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,500</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:denisse_rodriguez@outlook.es" class="footer-link">📧 denisse_rodriguez@outlook.es</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +18493521679</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/deterodr" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-5">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-5','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-5','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-5','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="92" data-name="jose d. osorio">
+      <div class="card-header">
+        <div class="rank-badge">#6</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Jose D. Osorio</h3>
+          <div class="candidate-loc">Miami-Fort Lauderdale y alrededores</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">92</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Pre-Litigation &amp; Litigation Specialist | Legal Operations Strategist | Legal Domain Expert</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Litigation Support Specialist</span>
+        <span class="role-sep">@</span><span class="role-company">Kleinman Ginzberg LLP</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ Direct background in Personal Injury / Pre-Litigation</li><li>✓ 10.0 years of legal Intake experience</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>~ Case Manager / Paralegal at law firm</li><li>~ Salary on the higher end but workable ($2,000)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">10.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">20/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Case Manager / Paralegal at law firm</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">12/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$2,000</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:josedosorio@hotmail.com" class="footer-link">📧 josedosorio@hotmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +51920276979</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/jose-d-osorio" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-6">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-6','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-6','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-6','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="92" data-name="david moncada">
+      <div class="card-header">
+        <div class="rank-badge">#7</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">David Moncada</h3>
+          <div class="candidate-loc">San Pedro Sula, Cortés, Honduras</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">92</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Case Manager | Customer Support Tier 2 Specialist | Patient Care Coordinator | Virtual Assistant &amp; Intake⁠</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Servicio de atención al cliente</span>
+        <span class="role-sep">@</span><span class="role-company">Altiam CX</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ 3.0 years of legal Intake experience</li><li>✓ Native / Bilingual English (neutral accent expected)</li><li>~ Case Manager / Legal Assistant</li><li>✓ Salary expectation in range ($900)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Native / Bilingual</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">3.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">17/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ff9345;"></div></div>
+          <div class="metric-detail">Case Manager / Legal Assistant</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$900</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:davidmoncada14@icloud.com" class="footer-link">📧 davidmoncada14@icloud.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +50497471949</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/dmoncadaruiz1427" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-7">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-7','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-7','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-7','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="89" data-name="jose bladimir alvarez alonzo">
+      <div class="card-header">
+        <div class="rank-badge">#8</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Jose Bladimir Alvarez Alonzo</h3>
+          <div class="candidate-loc">Managua, Managua, Nicaragua</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">89</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">CRM Case Manager | Account Coordinator | Intake Specialist | BDR | B2B | CSM | Onboarding Specialist | Client Relation Management | Retentions | Sales | Tech Support | Salesforce |</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">CRM Manager and Account Coordinator</span>
+        <span class="role-sep">@</span><span class="role-company">Texas Ensurance</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ 4.0 years of legal Intake experience</li><li>~ Professional English (validate accent in interview)</li><li>✓ Current role fits: Current Intake role (legal context)</li><li>✓ Salary expectation in range ($1,200)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">17/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ff9345;"></div></div>
+          <div class="metric-detail">Professional</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">4.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">22/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Current Intake role (legal context)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,200</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:josebladimiralvarezalonzo@gmail.com" class="footer-link">📧 josebladimiralvarezalonzo@gmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +50558401829</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/jose-bladimir-alvarez-alonzo-b73648290" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-8">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-8','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-8','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-8','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="87" data-name="sofia mendez">
+      <div class="card-header">
+        <div class="rank-badge">#9</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Sofia Mendez</h3>
+          <div class="candidate-loc">Tegucigalpa, Francisco Morazán, Honduras</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">87</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">Driven by excellence, guided by strategy, and committed to continuous growth.</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Legal Assistant</span>
+        <span class="role-sep">@</span><span class="role-company">Romano Law Group</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ 3.0 years of legal Intake experience</li><li>~ Professional English (validate accent in interview)</li><li>~ Case Manager / Paralegal at law firm</li><li>✓ Salary expectation in range ($1,300)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">17/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ff9345;"></div></div>
+          <div class="metric-detail">Professional</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">3.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">20/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Case Manager / Paralegal at law firm</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,300</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:sofiamendez13r@outlook.com" class="footer-link">📧 sofiamendez13r@outlook.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +50488515821</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/sofia-mendez-90421b208" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-9">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-9','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-9','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-9','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+
+    <div class="candidate-card" data-tier="Excellent" data-score="87" data-name="alexa michelle yrizarry ferreras">
+      <div class="card-header">
+        <div class="rank-badge">#10</div>
+        <div class="card-title-block">
+          <h3 class="candidate-name">Alexa michelle Yrizarry ferreras</h3>
+          <div class="candidate-loc">República Dominicana</div>
+        </div>
+        <div class="score-block" style="background:#f0f9dc;border:2px solid #a9d944;">
+          <div class="score-num" style="color:#a9d944;">87</div>
+          <div class="score-tier">Excellent</div>
+        </div>
+      </div>
+
+      <div class="titular">International Business Professional
+
+Personal Injury Demand Specialist | Pre-Litigation Case Manager | Legal Operations Professional | Medical Records &amp; Settlement Support</div>
+
+      <div class="current-role">
+        <span class="role-label">Current role:</span>
+        <span class="role-value">Demand Specialist </span>
+        <span class="role-sep">@</span><span class="role-company">Quill &amp; Arrow LLP</span>
+      </div>
+
+      <div class="fit-reasons">
+        <div class="fit-label">Why they fit</div>
+        <ul><li>✓ Direct background in Personal Injury / Pre-Litigation</li><li>✓ 4.0 years of legal Intake experience</li><li>~ Professional English (validate accent in interview)</li><li>~ Case Manager / Paralegal at law firm</li><li>✓ Salary expectation in range ($1,400)</li></ul>
+      </div>
+
+      <div class="metrics-grid">
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">English</span>
+            <span class="metric-value">17/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:68.0%;background:#ff9345;"></div></div>
+          <div class="metric-detail">Professional</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Legal Intake</span>
+            <span class="metric-value">25/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">4.0 year(s)</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Relevance</span>
+            <span class="metric-value">20/25</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">Case Manager / Paralegal at law firm</div>
+        </div>
+        
+        
+        <div class="metric">
+          <div class="metric-header">
+            <span class="metric-label">Salary fit</span>
+            <span class="metric-value">15/15</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#a9d944;"></div></div>
+          <div class="metric-detail">$1,400</div>
+        </div>
+        
+      </div>
+
+      <div class="card-footer">
+        <a href="mailto:alexamichelleyf12@gmail.com" class="footer-link">📧 alexamichelleyf12@gmail.com</a>
+        <span class="footer-sep">·</span>
+        <span class="footer-link">📱 +18298034098</span>
+        <span class="footer-sep">·</span><a href="https://www.linkedin.com/in/alexa-michelle-yrizarry-ferreras-2b2a76280" target="_blank" class="footer-link linkedin-link">🔗 LinkedIn</a>
+      </div>
+
+      <div class="decision-widget" data-decision-id="top-10">
+        <span class="decision-label">Client decision:</span>
+        <button class="decision-btn advance" data-status="advance" onclick="setDecision('top-10','advance',this)">✓ Advance to interview</button>
+        <button class="decision-btn hold" data-status="hold" onclick="setDecision('top-10','hold',this)">? On hold</button>
+        <button class="decision-btn reject" data-status="reject" onclick="setDecision('top-10','reject',this)">✕ Not this round</button>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="section-header" style="margin-top:40px;">
+    <h2>Backups (Ranking 11-20)</h2>
+    <p>Second string. Solid profiles in case any Top 10 candidate declines or falls short in interview.</p>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Candidate</th>
+        <th>Current role · Company</th>
+        <th class="center">English</th>
+        <th class="center">Intake years</th>
+        <th class="center">Salary exp.</th>
+        <th class="center">Score</th>
+        <th class="center">LinkedIn</th>
+        <th class="center">Decision</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <tr data-decision-row="bk-11">
+      <td class="rank-cell">#11</td>
+      <td><strong>Bryan C. Mejía Rodríguez</strong><br><span class="table-sub">San Pedro Sula, Cortés, Honduras</span></td>
+      <td>Quality Assurance Specialist<br><span class="table-sub">Google Fiber</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><strong style="color:#a9d944;">86</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/bryanmejía" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-11">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-11','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-11','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-11','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-12">
+      <td class="rank-cell">#12</td>
+      <td><strong>Edwin Bermúdez</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>Intake Specialist <br><span class="table-sub">Xu Law Group</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/edwin-bermúdez-815883324" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-12">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-12','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-12','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-12','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-13">
+      <td class="rank-cell">#13</td>
+      <td><strong>David Cuellar</strong><br><span class="table-sub">San Pedro Sula, Cortés, Honduras</span></td>
+      <td>Executive of Staffing &amp; Intake Coordinator<br><span class="table-sub">DavinWorks</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/david-cuellar-103124144" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-13">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-13','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-13','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-13','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-14">
+      <td class="rank-cell">#14</td>
+      <td><strong>Maria Gabriela Catto</strong><br><span class="table-sub">Brasil</span></td>
+      <td>Intake Specialist<br><span class="table-sub">Arvenda LLC</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/maria-catto" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-14">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-14','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-14','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-14','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-15">
+      <td class="rank-cell">#15</td>
+      <td><strong>Santiago Silva</strong><br><span class="table-sub">Bogotá, Distrito Capital, Colombia</span></td>
+      <td>Customer Care Representative <br><span class="table-sub">Voyager Global Mobility</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/santiago-silva-001b76387" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-15">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-15','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-15','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-15','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-16">
+      <td class="rank-cell">#16</td>
+      <td><strong>Sergio  Martinez Estremadoyro</strong><br><span class="table-sub">Santa Cruz de la Sierra, Santa Cruz, Bol</span></td>
+      <td>Administrative Assistant<br><span class="table-sub">PT Global</span></td>
+      <td class="center">Professional</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,000</td>
+      <td class="center"><strong style="color:#ff9345;">84</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/sergio-martinez-estremadoyro-50a8a5213" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-16">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-16','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-16','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-16','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-17">
+      <td class="rank-cell">#17</td>
+      <td><strong>Victor  Talavera Goussen</strong><br><span class="table-sub">Managua, Nicaragua</span></td>
+      <td>Intake Supervisor<br><span class="table-sub">Projective Staffing</span></td>
+      <td class="center">Professional</td>
+      <td class="center">3.0</td>
+      <td class="center">$8.5 (revisar)</td>
+      <td class="center"><strong style="color:#ff9345;">83</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/victor-talavera-goussen-960160208" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-17">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-17','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-17','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-17','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-18">
+      <td class="rank-cell">#18</td>
+      <td><strong>Lauren Angulo Rodriguez</strong><br><span class="table-sub">San Carlos, Alajuela, Costa Rica</span></td>
+      <td>Insurance Advocate<br><span class="table-sub">My Performance Health</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,800</td>
+      <td class="center"><strong style="color:#ff9345;">82</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/lauren-angulo-rodriguez-439460144" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-18">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-18','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-18','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-18','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-19">
+      <td class="rank-cell">#19</td>
+      <td><strong>Jordan Munns</strong><br><span class="table-sub">Colombia</span></td>
+      <td><br><span class="table-sub"></span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><strong style="color:#ff9345;">79</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jordan-munns-5a2526261" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-19">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-19','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-19','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-19','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    <tr data-decision-row="bk-20">
+      <td class="rank-cell">#20</td>
+      <td><strong>BABETH PEDROZA FOSTER</strong><br><span class="table-sub">Panamá, Panamá</span></td>
+      <td>Sales and Marketing Coordinator<br><span class="table-sub">OBSF </span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">7.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><strong style="color:#ff9345;">79</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/babeth-pedroza-foster-b8bb7a50" target="_blank">View</a></td>
+      <td class="center">
+        <div class="decision-cell" data-decision-id="bk-20">
+          <button class="decision-mini-btn advance" data-status="advance" title="Advance to interview" onclick="setDecision('bk-20','advance',this)">✓</button>
+          <button class="decision-mini-btn hold" data-status="hold" title="On hold" onclick="setDecision('bk-20','hold',this)">?</button>
+          <button class="decision-mini-btn reject" data-status="reject" title="Not this round" onclick="setDecision('bk-20','reject',this)">✕</button>
+        </div>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <details>
+    <summary>View full ranking of all 83 active applicants</summary>
+    <div class="details-body" style="padding:0;">
+      <div style="padding:16px 20px;background:var(--intelsa-muted-bg);border-bottom:1px solid var(--intelsa-border);">
+        <input type="text" class="search-input" id="full-search" placeholder="Search the full list..." style="width:100%;">
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="data-table" id="full-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Candidate</th>
+              <th>Current role · Company</th>
+              <th class="center">English</th>
+              <th class="center">Intake years</th>
+              <th class="center">Salary exp.</th>
+              <th class="center">Tier</th>
+              <th class="center">Score</th>
+              <th class="center">LI</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+    <tr data-tier="Excellent" data-search="josseline aquino san salvador, san salvador, el salvador bilingual intake specialist">
+      <td class="rank-cell">#1</td>
+      <td><strong>Josseline Aquino</strong><br><span class="table-sub">San Salvador, San Salvador, El Salvador</span></td>
+      <td>Bilingual Intake Specialist<br><span class="table-sub">Virtual Latinos</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$900</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">97</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/josseline-aquino-849391292" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="alejandro losada bogotá, distrito capital, colombia legal assistant ">
+      <td class="rank-cell">#2</td>
+      <td><strong>Alejandro Losada</strong><br><span class="table-sub">Bogotá, Distrito Capital, Colombia</span></td>
+      <td>Legal Assistant <br><span class="table-sub">Alexander Shunnarah Trial Attorneys</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">95</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alejandro-losada-262411271" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="axcel aaron lara espinoza managua, nicaragua programa de liderazgo">
+      <td class="rank-cell">#3</td>
+      <td><strong>Axcel Aaron Lara Espinoza</strong><br><span class="table-sub">Managua, Nicaragua</span></td>
+      <td>Programa de liderazgo<br><span class="table-sub">Sitel</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,800</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">94</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/axcel-aaron-lara-espinoza-181032203" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="piero vásquez perú international business prospecting associate(b2b)">
+      <td class="rank-cell">#4</td>
+      <td><strong>Piero Vásquez</strong><br><span class="table-sub">Perú</span></td>
+      <td>International Business Prospecting Associate(B2B)<br><span class="table-sub">non exclusive independent contractor</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,000</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">93</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/piero-vásquez-325b85219" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="denisse tejeda república dominicana legal assistant – personal injury law">
+      <td class="rank-cell">#5</td>
+      <td><strong>Denisse Tejeda</strong><br><span class="table-sub">República Dominicana</span></td>
+      <td>Legal Assistant – Personal Injury Law<br><span class="table-sub">Paralegal Institute</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">92</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/deterodr" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="jose d. osorio miami-fort lauderdale y alrededores litigation support specialist">
+      <td class="rank-cell">#6</td>
+      <td><strong>Jose D. Osorio</strong><br><span class="table-sub">Miami-Fort Lauderdale y alrededores</span></td>
+      <td>Litigation Support Specialist<br><span class="table-sub">Kleinman Ginzberg LLP</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">10.0</td>
+      <td class="center">$2,000</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">92</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jose-d-osorio" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="david moncada san pedro sula, cortés, honduras servicio de atención al cliente">
+      <td class="rank-cell">#7</td>
+      <td><strong>David Moncada</strong><br><span class="table-sub">San Pedro Sula, Cortés, Honduras</span></td>
+      <td>Servicio de atención al cliente<br><span class="table-sub">Altiam CX</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$900</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">92</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/dmoncadaruiz1427" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="jose bladimir alvarez alonzo managua, managua, nicaragua crm manager and account coordinator">
+      <td class="rank-cell">#8</td>
+      <td><strong>Jose Bladimir Alvarez Alonzo</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>CRM Manager and Account Coordinator<br><span class="table-sub">Texas Ensurance</span></td>
+      <td class="center">Professional</td>
+      <td class="center">4.0</td>
+      <td class="center">$1,200</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">89</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jose-bladimir-alvarez-alonzo-b73648290" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="sofia mendez tegucigalpa, francisco morazán, honduras legal assistant">
+      <td class="rank-cell">#9</td>
+      <td><strong>Sofia Mendez</strong><br><span class="table-sub">Tegucigalpa, Francisco Morazán, Honduras</span></td>
+      <td>Legal Assistant<br><span class="table-sub">Romano Law Group</span></td>
+      <td class="center">Professional</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">87</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/sofia-mendez-90421b208" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="alexa michelle yrizarry ferreras república dominicana demand specialist ">
+      <td class="rank-cell">#10</td>
+      <td><strong>Alexa michelle Yrizarry ferreras</strong><br><span class="table-sub">República Dominicana</span></td>
+      <td>Demand Specialist <br><span class="table-sub">Quill &amp; Arrow LLP</span></td>
+      <td class="center">Professional</td>
+      <td class="center">4.0</td>
+      <td class="center">$1,400</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">87</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alexa-michelle-yrizarry-ferreras-2b2a76280" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="bryan c. mejía rodríguez san pedro sula, cortés, honduras quality assurance specialist">
+      <td class="rank-cell">#11</td>
+      <td><strong>Bryan C. Mejía Rodríguez</strong><br><span class="table-sub">San Pedro Sula, Cortés, Honduras</span></td>
+      <td>Quality Assurance Specialist<br><span class="table-sub">Google Fiber</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">86</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/bryanmejía" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="edwin bermúdez managua, managua, nicaragua intake specialist ">
+      <td class="rank-cell">#12</td>
+      <td><strong>Edwin Bermúdez</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>Intake Specialist <br><span class="table-sub">Xu Law Group</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/edwin-bermúdez-815883324" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="david cuellar san pedro sula, cortés, honduras executive of staffing &amp; intake coordinator">
+      <td class="rank-cell">#13</td>
+      <td><strong>David Cuellar</strong><br><span class="table-sub">San Pedro Sula, Cortés, Honduras</span></td>
+      <td>Executive of Staffing &amp; Intake Coordinator<br><span class="table-sub">DavinWorks</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/david-cuellar-103124144" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="maria gabriela catto brasil intake specialist">
+      <td class="rank-cell">#14</td>
+      <td><strong>Maria Gabriela Catto</strong><br><span class="table-sub">Brasil</span></td>
+      <td>Intake Specialist<br><span class="table-sub">Arvenda LLC</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/maria-catto" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Excellent" data-search="santiago silva bogotá, distrito capital, colombia customer care representative ">
+      <td class="rank-cell">#15</td>
+      <td><strong>Santiago Silva</strong><br><span class="table-sub">Bogotá, Distrito Capital, Colombia</span></td>
+      <td>Customer Care Representative <br><span class="table-sub">Voyager Global Mobility</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#a9d944;color:#fff;">Excellent</span></td>
+      <td class="center"><strong style="color:#a9d944;">85</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/santiago-silva-001b76387" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="sergio  martinez estremadoyro santa cruz de la sierra, santa cruz, bolivia administrative assistant">
+      <td class="rank-cell">#16</td>
+      <td><strong>Sergio  Martinez Estremadoyro</strong><br><span class="table-sub">Santa Cruz de la Sierra, Santa Cruz, Bol</span></td>
+      <td>Administrative Assistant<br><span class="table-sub">PT Global</span></td>
+      <td class="center">Professional</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,000</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">84</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/sergio-martinez-estremadoyro-50a8a5213" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="victor  talavera goussen managua, nicaragua intake supervisor">
+      <td class="rank-cell">#17</td>
+      <td><strong>Victor  Talavera Goussen</strong><br><span class="table-sub">Managua, Nicaragua</span></td>
+      <td>Intake Supervisor<br><span class="table-sub">Projective Staffing</span></td>
+      <td class="center">Professional</td>
+      <td class="center">3.0</td>
+      <td class="center">$8.5 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">83</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/victor-talavera-goussen-960160208" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="lauren angulo rodriguez san carlos, alajuela, costa rica insurance advocate">
+      <td class="rank-cell">#18</td>
+      <td><strong>Lauren Angulo Rodriguez</strong><br><span class="table-sub">San Carlos, Alajuela, Costa Rica</span></td>
+      <td>Insurance Advocate<br><span class="table-sub">My Performance Health</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,800</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">82</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/lauren-angulo-rodriguez-439460144" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="jordan munns colombia ">
+      <td class="rank-cell">#19</td>
+      <td><strong>Jordan Munns</strong><br><span class="table-sub">Colombia</span></td>
+      <td><br><span class="table-sub"></span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">79</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jordan-munns-5a2526261" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="babeth pedroza foster panamá, panamá sales and marketing coordinator">
+      <td class="rank-cell">#20</td>
+      <td><strong>BABETH PEDROZA FOSTER</strong><br><span class="table-sub">Panamá, Panamá</span></td>
+      <td>Sales and Marketing Coordinator<br><span class="table-sub">OBSF </span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">7.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">79</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/babeth-pedroza-foster-b8bb7a50" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="cesar zanabria perú medical interpreter/customer service representative">
+      <td class="rank-cell">#21</td>
+      <td><strong>Cesar Zanabria</strong><br><span class="table-sub">Perú</span></td>
+      <td>Medical Interpreter/Customer Service Representative<br><span class="table-sub">SGF Global</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">79</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/césarzanabriab" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="adriana garcia managua, managua, nicaragua ">
+      <td class="rank-cell">#22</td>
+      <td><strong>Adriana Garcia</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td><br><span class="table-sub"></span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">79</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/adriana-garcia-076a65364" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="diego palma herrera managua, managua, nicaragua subject matter expert">
+      <td class="rank-cell">#23</td>
+      <td><strong>Diego Palma Herrera</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>Subject Matter Expert<br><span class="table-sub">Concentrix</span></td>
+      <td class="center">Professional</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">78</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/diego-palma-herrera-338703316" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="juan camilo cardona serna guatemala, guatemala, guatemala sales coordinator">
+      <td class="rank-cell">#24</td>
+      <td><strong>Juan Camilo Cardona Serna</strong><br><span class="table-sub">Guatemala, Guatemala, Guatemala</span></td>
+      <td>Sales Coordinator<br><span class="table-sub">The Heroco Company</span></td>
+      <td class="center">Professional</td>
+      <td class="center">4.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">78</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/juan-camilo-cardona-serna-322a48172" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="alex garcia montevideo, montevideo, uruguay customer success manager">
+      <td class="rank-cell">#25</td>
+      <td><strong>Alex Garcia</strong><br><span class="table-sub">Montevideo, Montevideo, Uruguay</span></td>
+      <td>Customer Success Manager<br><span class="table-sub">ClinicPro.ai</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">3.0</td>
+      <td class="center">$2,300</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">77</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alex-garcia-29824823" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="sarah moskovitz cali, valle del cauca, colombia legal specialist">
+      <td class="rank-cell">#26</td>
+      <td><strong>Sarah Moskovitz</strong><br><span class="table-sub">Cali, Valle del Cauca, Colombia</span></td>
+      <td>Legal Specialist<br><span class="table-sub">Law Firm</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,000</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">77</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/sarah-moskovitz-a92401389" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="alice valente florianópolis, santa catarina, brasil paralegal intake specialist &amp; trainer &amp; opening files">
+      <td class="rank-cell">#27</td>
+      <td><strong>Alice Valente</strong><br><span class="table-sub">Florianópolis, Santa Catarina, Brasil</span></td>
+      <td>Paralegal Intake Specialist &amp; Trainer &amp; Opening Files<br><span class="table-sub">Projective Staffing</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">77</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alice-valente-3b0582190" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="alejandra nieto ecuador medical bills and records reviewer specialist">
+      <td class="rank-cell">#28</td>
+      <td><strong>Alejandra Nieto</strong><br><span class="table-sub">Ecuador</span></td>
+      <td>Medical Bills and Records Reviewer Specialist<br><span class="table-sub">The Advocates</span></td>
+      <td class="center">Professional</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">77</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alejandranietoz" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="darlinka alexandra c. barranquilla, atlántico, colombia transport security analyst">
+      <td class="rank-cell">#29</td>
+      <td><strong>Darlinka Alexandra C.</strong><br><span class="table-sub">Barranquilla, Atlántico, Colombia</span></td>
+      <td>Transport security analyst<br><span class="table-sub">Crane Worldwide Logistics</span></td>
+      <td class="center">Professional</td>
+      <td class="center">5.0</td>
+      <td class="center">$1,000</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">77</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/darlinkacuello" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="enrique agustin jimenez baldivieso bolivia abogado regional santa cruz">
+      <td class="rank-cell">#30</td>
+      <td><strong>Enrique Agustin Jimenez Baldivieso</strong><br><span class="table-sub">Bolivia</span></td>
+      <td>Abogado Regional Santa Cruz<br><span class="table-sub">Banco Pyme de la Comunidad</span></td>
+      <td class="center">Professional</td>
+      <td class="center">8.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">77</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/enrique-agustin-jimenez-baldivieso" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="federico daniel bourdette martinez montevideo, montevideo, uruguay travel support specialist">
+      <td class="rank-cell">#31</td>
+      <td><strong>Federico Daniel Bourdette Martinez</strong><br><span class="table-sub">Montevideo, Montevideo, Uruguay</span></td>
+      <td>Travel Support Specialist<br><span class="table-sub">Internova Travel Group</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">2.0</td>
+      <td class="center">$2,000</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">76</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/federico-bourdette" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="gabriela p. correa jundiaí, san pablo, brasil ">
+      <td class="rank-cell">#32</td>
+      <td><strong>Gabriela P. Correa</strong><br><span class="table-sub">Jundiaí, San Pablo, Brasil</span></td>
+      <td><br><span class="table-sub"></span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">8.0</td>
+      <td class="center">$12.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">76</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/gabriela-p-correa-8a3b24213" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="jefferson hernandez el salvador customer support specialist">
+      <td class="rank-cell">#33</td>
+      <td><strong>Jefferson Hernandez</strong><br><span class="table-sub">El Salvador</span></td>
+      <td>Customer Support Specialist<br><span class="table-sub">Frontier Internet</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$950</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">75</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jefferson-hernandez-00307b37a" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="brandon castillo hidalgo san josé, san josé, costa rica asistente legal">
+      <td class="rank-cell">#34</td>
+      <td><strong>Brandon Castillo Hidalgo</strong><br><span class="table-sub">San José, San José, Costa Rica</span></td>
+      <td>Asistente legal<br><span class="table-sub">Virtual Staffing Careers</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,600</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">74</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/brandon-castillo-hidalgo-279088352" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="juan sebastian perlaza cali, valle del cauca, colombia legal intake specialist">
+      <td class="rank-cell">#35</td>
+      <td><strong>Juan Sebastian Perlaza</strong><br><span class="table-sub">Cali, Valle del Cauca, Colombia</span></td>
+      <td>Legal Intake Specialist<br><span class="table-sub">Now Analytics</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">74</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/juan-sebastián-perlaza-967057366" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="josé alberto olivo alcantara santo domingo este, santo domingo, república dominicana sales opener">
+      <td class="rank-cell">#36</td>
+      <td><strong>José Alberto Olivo Alcantara</strong><br><span class="table-sub">Santo Domingo Este, Santo Domingo, Repúb</span></td>
+      <td>Sales Opener<br><span class="table-sub">Broadway Support Services</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.5</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">74</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/josé-alberto-olivo-alcantara-90875a290" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="erika lópez medellín, antioquia, colombia entrenadora de planta ">
+      <td class="rank-cell">#37</td>
+      <td><strong>Erika López</strong><br><span class="table-sub">Medellín, Antioquia, Colombia</span></td>
+      <td>Entrenadora de planta <br><span class="table-sub">Fundación Universitaria Luis Amigo</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$1.5 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">73</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/erika-lópez-799663310" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="diego marimon sahagún, córdoba, colombia intake specialist">
+      <td class="rank-cell">#38</td>
+      <td><strong>Diego Marimon</strong><br><span class="table-sub">Sahagún, Córdoba, Colombia</span></td>
+      <td>Intake Specialist<br><span class="table-sub">Top Notch Solutions</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$800</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">72</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/diego-marimon-b25b03336" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="estefanny zuares tegucigalpa, francisco morazán, honduras jr recruiter ">
+      <td class="rank-cell">#39</td>
+      <td><strong>Estefanny Zuares</strong><br><span class="table-sub">Tegucigalpa, Francisco Morazán, Honduras</span></td>
+      <td>Jr Recruiter <br><span class="table-sub">Digital Executive</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">2.0</td>
+      <td class="center">$1,150</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">72</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/estefanny-zuares-8a9ba5202" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="daniel hernandez honduras case manager assistant">
+      <td class="rank-cell">#40</td>
+      <td><strong>Daniel Hernandez</strong><br><span class="table-sub">Honduras</span></td>
+      <td>Case Manager Assistant<br><span class="table-sub">The Calderon Law Firm, PLLC</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,100</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">72</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/dhrnan412" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="jose abraham  gross castillo masaya, nicaragua representante de servicio al cliente">
+      <td class="rank-cell">#41</td>
+      <td><strong>Jose abraham  Gross castillo</strong><br><span class="table-sub">Masaya, Nicaragua</span></td>
+      <td>Representante de servicio al cliente<br><span class="table-sub">ibex</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$900</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">71</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/josé-abraham-gross-castillo-327982225" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="santiago angel rosero bogotá, distrito capital, colombia especialista en admisiones">
+      <td class="rank-cell">#42</td>
+      <td><strong>Santiago Angel Rosero</strong><br><span class="table-sub">Bogotá, Distrito Capital, Colombia</span></td>
+      <td>Especialista en admisiones<br><span class="table-sub">Rafii &amp; Nazarian LLP</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,200</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">71</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/santiago-angel-rosero-7a6608114" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="claudia yanina abarca pareja perú freelance translator &amp; interpreter (asylum, refugee &amp; uscis) ">
+      <td class="rank-cell">#43</td>
+      <td><strong>Claudia Yanina Abarca Pareja</strong><br><span class="table-sub">Perú</span></td>
+      <td>Freelance Translator &amp; Interpreter (Asylum, Refugee &amp; USCIS)<br><span class="table-sub">Autónomo</span></td>
+      <td class="center">Professional</td>
+      <td class="center">3.0</td>
+      <td class="center">$1,000</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">71</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/claudia-abarcap" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="aurelio alexandre brasil fisioterapeuta">
+      <td class="rank-cell">#44</td>
+      <td><strong>Aurelio Alexandre</strong><br><span class="table-sub">Brasil</span></td>
+      <td>Fisioterapeuta<br><span class="table-sub">hospital</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">20.0</td>
+      <td class="center">$10.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">70</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/aurelio-alexandre-a72307410" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Strong" data-search="le vigneaux asunción, asunción, paraguay intérprete">
+      <td class="rank-cell">#45</td>
+      <td><strong>Le Vigneaux</strong><br><span class="table-sub">Asunción, Asunción, Paraguay</span></td>
+      <td>Intérprete<br><span class="table-sub">Epicuscorporate</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">5.0</td>
+      <td class="center">$12.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#ff9345;color:#fff;">Strong</span></td>
+      <td class="center"><strong style="color:#ff9345;">70</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/le-vigneaux-5274a329a" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="sergio castillo guatemala, guatemala, guatemala representante de servicio técnico">
+      <td class="rank-cell">#46</td>
+      <td><strong>Sergio Castillo</strong><br><span class="table-sub">Guatemala, Guatemala, Guatemala</span></td>
+      <td>Representante de servicio técnico<br><span class="table-sub">IntouchCX</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,200</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">69</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/sergio-castillo-84b2b0338" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="carlos martínez cevallos guayaquil, guayas, ecuador abogado sr.">
+      <td class="rank-cell">#47</td>
+      <td><strong>Carlos Martínez Cevallos</strong><br><span class="table-sub">Guayaquil, Guayas, Ecuador</span></td>
+      <td>Abogado Sr.<br><span class="table-sub">Consulegis Abogados</span></td>
+      <td class="center">Professional</td>
+      <td class="center">8.0</td>
+      <td class="center">$2,500</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">68</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/carlosmartinezcevallos" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="aleksandr tretiakov buenos aires, provincia de buenos aires, argentina us &amp; uk immigration specialist / legal writer">
+      <td class="rank-cell">#48</td>
+      <td><strong>Aleksandr Tretiakov</strong><br><span class="table-sub">Buenos Aires, Provincia de Buenos Aires,</span></td>
+      <td>US &amp; UK Immigration Specialist / Legal Writer<br><span class="table-sub">LASTEN LLC</span></td>
+      <td class="center">Professional</td>
+      <td class="center">12.0</td>
+      <td class="center">$2,300</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">68</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/aleksandr-tretiakov-a9122a327" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="benjamin monge managua, managua, nicaragua insurance virtual assistant">
+      <td class="rank-cell">#49</td>
+      <td><strong>Benjamin Monge</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>Insurance Virtual Assistant<br><span class="table-sub">Agent 7</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$960</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">67</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/benjamin-monge-757125287" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="michael ovalles santo domingo, distrito nacional, república dominicana referral specialist">
+      <td class="rank-cell">#50</td>
+      <td><strong>Michael Ovalles</strong><br><span class="table-sub">Santo Domingo, Distrito Nacional, Repúbl</span></td>
+      <td>Referral specialist<br><span class="table-sub">The Ward Law Group, PL</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$2,000</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">67</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/michael-ovalles-bb79ba282" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="luiz silva porto feliz, san pablo, brasil customer service - billing agent">
+      <td class="rank-cell">#51</td>
+      <td><strong>Luiz Silva</strong><br><span class="table-sub">Porto Feliz, San Pablo, Brasil</span></td>
+      <td>Customer Service - Billing Agent<br><span class="table-sub">GetMyBoat</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$9.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">66</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/luizdefariasilva1" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="guillermo roscoe argentina junior sales">
+      <td class="rank-cell">#52</td>
+      <td><strong>Guillermo Roscoe</strong><br><span class="table-sub">Argentina</span></td>
+      <td>Junior Sales<br><span class="table-sub">Crossroads Inurance Brokers</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">64</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/guillermo-roscoe" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="adriana monterroza el salvador virtual receptionist">
+      <td class="rank-cell">#53</td>
+      <td><strong>Adriana Monterroza</strong><br><span class="table-sub">El Salvador</span></td>
+      <td>Virtual Receptionist<br><span class="table-sub">Easybee Answering Services</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,100</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">64</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/adriana-monterroza-19b6911a2" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="luicius vanegas panamá, panamá, panamá enterprise international talent acquisition officer">
+      <td class="rank-cell">#54</td>
+      <td><strong>Luicius Vanegas</strong><br><span class="table-sub">Panamá, Panamá, Panamá</span></td>
+      <td>Enterprise International Talent Acquisition Officer<br><span class="table-sub">Legal Soft</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">2.0</td>
+      <td class="center">$8.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">63</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/luiciusvanegas" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="jeffrey augusto arévalo sobalvarro managua, managua, nicaragua legal assistant">
+      <td class="rank-cell">#55</td>
+      <td><strong>Jeffrey Augusto Arévalo Sobalvarro</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>Legal Assistant<br><span class="table-sub">Virtual Staffing Careers</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.6</td>
+      <td class="center">$8.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">63</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jeffrey-augusto-arévalo-sobalvarro-2439312b2" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="jesús cáceres panamá, panamá senior accountant">
+      <td class="rank-cell">#56</td>
+      <td><strong>Jesús Cáceres</strong><br><span class="table-sub">Panamá, Panamá</span></td>
+      <td>Senior Accountant<br><span class="table-sub">Magic Dreams Productions</span></td>
+      <td class="center">Professional</td>
+      <td class="center">10.0</td>
+      <td class="center">$10.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">62</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jesús-cáceres-695b11183" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="alba  mieses santo domingo, distrito nacional, república dominicana customer service representative">
+      <td class="rank-cell">#57</td>
+      <td><strong>Alba  Mieses</strong><br><span class="table-sub">Santo Domingo, Distrito Nacional, Repúbl</span></td>
+      <td>Customer Service Representative<br><span class="table-sub">HIRED EXPERTS</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$10.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">62</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alba-mieses-638578278" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="alejandro leon tegucigalpa, francisco morazán, honduras customer support specialist">
+      <td class="rank-cell">#58</td>
+      <td><strong>Alejandro Leon</strong><br><span class="table-sub">Tegucigalpa, Francisco Morazán, Honduras</span></td>
+      <td>Customer Support Specialist<br><span class="table-sub">Work for Impact</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">0.0</td>
+      <td class="center">$1,200</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">61</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/alejandro-leon-ba9462267" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="widly sylvain distrito nacional, república dominicana unemployed">
+      <td class="rank-cell">#59</td>
+      <td><strong>Widly Sylvain</strong><br><span class="table-sub">Distrito Nacional, República Dominicana</span></td>
+      <td>Unemployed<br><span class="table-sub">Global NewTech</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$2,000</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">61</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/widly-sylvain-9b80193a3" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="maynor herrera managua, managua, nicaragua debit card dispute specialist &amp; check deposits reviewer">
+      <td class="rank-cell">#60</td>
+      <td><strong>Maynor Herrera</strong><br><span class="table-sub">Managua, Managua, Nicaragua</span></td>
+      <td>Debit Card Dispute Specialist &amp; Check Deposits Reviewer<br><span class="table-sub">SoFi</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">0.0</td>
+      <td class="center">$900</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">61</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/maynor-herrera" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="melanie barrera guatemala, guatemala customer support specialist">
+      <td class="rank-cell">#61</td>
+      <td><strong>Melanie Barrera</strong><br><span class="table-sub">Guatemala, Guatemala</span></td>
+      <td>Customer Support Specialist<br><span class="table-sub">Paysend</span></td>
+      <td class="center">Professional</td>
+      <td class="center">2.0</td>
+      <td class="center">$15,000 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">59</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/melanie-barrera-8315b6239" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="karen ugarte cochabamba, bolivia operations manager">
+      <td class="rank-cell">#62</td>
+      <td><strong>Karen Ugarte</strong><br><span class="table-sub">Cochabamba, Bolivia</span></td>
+      <td>Operations Manager<br><span class="table-sub">Delta Staffing S.R.L.</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">0.0</td>
+      <td class="center">$1,750</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">58</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/karen-ugarte-rodriguez" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="sebastián indriago venezuela debt collector">
+      <td class="rank-cell">#63</td>
+      <td><strong>Sebastián Indriago</strong><br><span class="table-sub">Venezuela</span></td>
+      <td>Debt Collector<br><span class="table-sub">ISF CREDIT SERVICING</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$800</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">57</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/sebastian-indriago" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="geoldie braham guatemala, guatemala case manager">
+      <td class="rank-cell">#64</td>
+      <td><strong>Geoldie Braham</strong><br><span class="table-sub">Guatemala, Guatemala</span></td>
+      <td>Case Manager<br><span class="table-sub">KARL STORZ North America</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$8,500 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">57</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/geoldiebraham" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="jessica jovel san pedro sula, cortés, honduras intérprete médico">
+      <td class="rank-cell">#65</td>
+      <td><strong>Jessica Jovel</strong><br><span class="table-sub">San Pedro Sula, Cortés, Honduras</span></td>
+      <td>Intérprete médico<br><span class="table-sub">GLOBO</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">56</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jessicamurillojovel" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="santiago lopez sanabria argentina co-fundador">
+      <td class="rank-cell">#66</td>
+      <td><strong>Santiago Lopez Sanabria</strong><br><span class="table-sub">Argentina</span></td>
+      <td>Co-Fundador<br><span class="table-sub">suza.ok</span></td>
+      <td class="center">Conversational</td>
+      <td class="center">3.0</td>
+      <td class="center">$2,500</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">56</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/santiagolopezsanabria" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Solid" data-search="anahí ivanna giménez punta alta, provincia de buenos aires, argentina scheduling coordinator">
+      <td class="rank-cell">#67</td>
+      <td><strong>Anahí Ivanna Giménez</strong><br><span class="table-sub">Punta Alta, Provincia de Buenos Aires, A</span></td>
+      <td>Scheduling Coordinator<br><span class="table-sub">Elite Liens</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">1.0</td>
+      <td class="center">$1.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#e8a33d;color:#fff;">Solid</span></td>
+      <td class="center"><strong style="color:#e8a33d;">55</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/anahí-ivanna-giménez-7a5641369" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="belky  silva costa rica order to cash operations associate">
+      <td class="rank-cell">#68</td>
+      <td><strong>Belky  Silva</strong><br><span class="table-sub">Costa Rica</span></td>
+      <td>Order to Cash Operations Associate<br><span class="table-sub">Diebold Nixdorf</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$2,000</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">54</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/belky-silva-36367b92" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="lenna lópez bogotá, distrito capital, colombia microsoft ai cloud partner program concierge specialist">
+      <td class="rank-cell">#69</td>
+      <td><strong>Lenna López</strong><br><span class="table-sub">Bogotá, Distrito Capital, Colombia</span></td>
+      <td>Microsoft AI Cloud Partner Program Concierge Specialist<br><span class="table-sub">TP</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">0.0</td>
+      <td class="center">$1,300</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">54</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/lenna-lopez" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="walter andres castañeda valbuena bogotá, distrito capital, colombia ggt agent">
+      <td class="rank-cell">#70</td>
+      <td><strong>Walter Andres Castañeda Valbuena</strong><br><span class="table-sub">Bogotá, Distrito Capital, Colombia</span></td>
+      <td>GGT Agent<br><span class="table-sub">Minor Hotels Europe and Americas</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$1,100</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">53</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/walterandrescastanedav" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="dednis centeno argentina sales &amp; operations associate ">
+      <td class="rank-cell">#71</td>
+      <td><strong>Dednis Centeno</strong><br><span class="table-sub">Argentina</span></td>
+      <td>Sales &amp; Operations Associate <br><span class="table-sub">lingohaus.com</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$1,500</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">53</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/dednis-centeno-a5688668" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="xavier gonzález guayaquil, guayas, ecuador legal intern">
+      <td class="rank-cell">#72</td>
+      <td><strong>Xavier González</strong><br><span class="table-sub">Guayaquil, Guayas, Ecuador</span></td>
+      <td>Legal Intern<br><span class="table-sub">Census Consultores</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$15.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">53</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/xavier-gonzález-27326b417" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="dr. eduardo etcheverry argentina titular estudio ee asesor contable - impositivo">
+      <td class="rank-cell">#73</td>
+      <td><strong>Dr. Eduardo Etcheverry</strong><br><span class="table-sub">Argentina</span></td>
+      <td>Titular Estudio EE Asesor Contable - Impositivo<br><span class="table-sub">Estudio EE Asesor Contable - Impositivo</span></td>
+      <td class="center">Conversational</td>
+      <td class="center">10.0</td>
+      <td class="center">$10.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">50</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/dr-eduardo-etcheverry-66b024a7" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="darlene alcerro tegucigalpa, francisco morazán, honduras dental assistant">
+      <td class="rank-cell">#74</td>
+      <td><strong>Darlene Alcerro</strong><br><span class="table-sub">Tegucigalpa, Francisco Morazán, Honduras</span></td>
+      <td>Dental Assistant<br><span class="table-sub">Clínica Dental Las Lomas</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">0.0</td>
+      <td class="center">$600</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">49</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/darlene-alcerro-54646438a" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="tiago  kasprzak gorri brasil junior software developer">
+      <td class="rank-cell">#75</td>
+      <td><strong>Tiago  Kasprzak Gorri</strong><br><span class="table-sub">Brasil</span></td>
+      <td>Junior Software Developer<br><span class="table-sub">Wise Systems</span></td>
+      <td class="center">Native / Bilingual</td>
+      <td class="center">0.0</td>
+      <td class="center">$850</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">49</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/tiagogorridev" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="katharina kühn frankfurt rhine-main y alrededores underwriting support">
+      <td class="rank-cell">#76</td>
+      <td><strong>Katharina Kühn</strong><br><span class="table-sub">Frankfurt Rhine-Main y alrededores</span></td>
+      <td>Underwriting Support<br><span class="table-sub">Zurich Insurance</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$2,000</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">49</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/katharina-kühn-6747a1241" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="gadiel abaunza área metropolitana de ciudad de méxico abogado">
+      <td class="rank-cell">#77</td>
+      <td><strong>Gadiel Abaunza</strong><br><span class="table-sub">Área metropolitana de Ciudad de México</span></td>
+      <td>ABOGADO<br><span class="table-sub">DESPACHO JURIDICO ACAPULCO</span></td>
+      <td class="center">None</td>
+      <td class="center">10.0</td>
+      <td class="center">$500,000 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">48</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/gadiel-abaunza-267b0b8a" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="javier peralta bascary san miguel de tucumán, tucumán, argentina consultor de planificación financiera">
+      <td class="rank-cell">#78</td>
+      <td><strong>Javier Peralta Bascary</strong><br><span class="table-sub">San Miguel de Tucumán, Tucumán, Argentin</span></td>
+      <td>Consultor de planificación financiera<br><span class="table-sub">Comunidad Loyalty</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$800</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">47</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/javier-peralta-bascary-987766205" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="jose tobar san salvador, san salvador, el salvador scheduler">
+      <td class="rank-cell">#79</td>
+      <td><strong>Jose Tobar</strong><br><span class="table-sub">San Salvador, San Salvador, El Salvador</span></td>
+      <td>Scheduler<br><span class="table-sub">Any Hour Group</span></td>
+      <td class="center">Professional</td>
+      <td class="center">1.0</td>
+      <td class="center">$8.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">47</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/jose-tobar-22489228b" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="manuel gaitan nicaragua marketing coordinator">
+      <td class="rank-cell">#80</td>
+      <td><strong>Manuel Gaitan</strong><br><span class="table-sub">Nicaragua</span></td>
+      <td>Marketing Coordinator<br><span class="table-sub">Galaxia Duty Free</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$8.0 (revisar)</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">44</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/manuel-gaitan-1381942a5" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="nadia carreras schabauer perú traductor autónomo">
+      <td class="rank-cell">#81</td>
+      <td><strong>Nadia Carreras Schabauer</strong><br><span class="table-sub">Perú</span></td>
+      <td>Traductor autónomo<br><span class="table-sub">Profesional independiente</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$800</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">41</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/nadia-carreras-schabauer-2814237a" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="arturo p. américa latina account receivable manager">
+      <td class="rank-cell">#82</td>
+      <td><strong>Arturo P.</strong><br><span class="table-sub">América Latina</span></td>
+      <td>Account Receivable Manager<br><span class="table-sub">Core Hydraulics</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$800</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">41</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/arturo-p-4b585b26b" target="_blank">View</a></td>
+    </tr>
+    
+    <tr data-tier="Below bar" data-search="santiago nan uruguay business system analyst">
+      <td class="rank-cell">#83</td>
+      <td><strong>Santiago Nan</strong><br><span class="table-sub">Uruguay</span></td>
+      <td>Business System Analyst<br><span class="table-sub">Corporate Travel Management (CTM) Group</span></td>
+      <td class="center">Professional</td>
+      <td class="center">0.0</td>
+      <td class="center">$3,500</td>
+      <td class="center"><span class="pill" style="background:#c0392b;color:#fff;">Below bar</span></td>
+      <td class="center"><strong style="color:#c0392b;">33</strong></td>
+      <td class="center"><a href="https://www.linkedin.com/in/santiago-nan-807bb11a6" target="_blank">View</a></td>
+    </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <div class="section-header" style="margin-top:40px;">
+    <h2>Scoring methodology</h2>
+    <p>How the FIT score (0-100) was built.</p>
+  </div>
+
+  <div class="methodology">
+    <h4>Weighting</h4>
+    <ul>
+      <li><strong>English (25 pts):</strong> Native/Bilingual = 25 · Professional = 17 · Conversational = 5</li>
+      <li><strong>Years of legal Intake (25 pts):</strong> 3+ years = 25 · 2 years = 18 · 1.5 years = 13 · 1 year = 10</li>
+      <li><strong>Role / company relevance (25 pts):</strong> Intake at US law firm = 25 · Case Manager at law firm = 20 · Legal + Call Center = 15 · Financial + Call Center = 15 · Call Center only = 11</li>
+      <li><strong>Salary expectation (15 pts):</strong> $900-1,500 = 15 · $1,500-2,000 = 12 · $2,000-2,500 = 6 · &gt;$2,500 = 2</li>
+      <li><strong>ATS status (10 pts):</strong> Potential candidate = 10 · Archived = 0</li>
+    </ul>
+    <h4 style="margin-top:16px;">Filters applied</h4>
+    <ul>
+      <li>30 archived applicants excluded (already dispositioned)</li>
+      <li>Flexible filters: Professional English accepted when the rest of the profile compensates</li>
+      <li>Personal Injury / Pre-Litigation signals highlighted in the "Why they fit" section</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Intelsa BPO &amp; CX · Medellín, Colombia · intelsa.co<br>
+    Report generated on Sep 07, 2026 · SOW-SM-2026-001
+  </div>
+</div>
+
+<script>
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.candidate-card');
+const searchInput = document.getElementById('search-input');
+let currentFilter = 'all';
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+searchInput.addEventListener('input', applyFilters);
+
+function applyFilters() {
+  const q = searchInput.value.toLowerCase().trim();
+  cards.forEach(card => {
+    const matchTier = currentFilter === 'all' || card.dataset.tier === currentFilter;
+    const matchSearch = !q || card.dataset.name.includes(q);
+    card.style.display = (matchTier && matchSearch) ? 'block' : 'none';
+  });
+}
+
+const fullSearch = document.getElementById('full-search');
+if (fullSearch) {
+  fullSearch.addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase().trim();
+    document.querySelectorAll('#full-table tbody tr').forEach(row => {
+      const s = row.dataset.search;
+      row.style.display = (!q || s.includes(q)) ? '' : 'none';
+    });
+  });
+}
+
+/* --- Client interview decision system --- */
+const DECISIONS_KEY = 'smdigital_intake_4417263190_decisions';
+let decisions = {};
+try { decisions = JSON.parse(localStorage.getItem(DECISIONS_KEY) || '{}'); } catch (e) { decisions = {}; }
+
+function saveDecisions() {
+  try { localStorage.setItem(DECISIONS_KEY, JSON.stringify(decisions)); } catch (e) {}
+}
+
+function setDecision(id, status, btnEl) {
+  decisions[id] = (decisions[id] === status) ? undefined : status;
+  if (!decisions[id]) delete decisions[id];
+  saveDecisions();
+  const widget = btnEl.closest('[data-decision-id]');
+  applyWidgetUI(widget, id);
+  updateCounts();
+}
+
+function applyWidgetUI(widget, id) {
+  const status = decisions[id];
+  widget.querySelectorAll('.decision-btn, .decision-mini-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.status === status);
+  });
+  const target = widget.closest('.candidate-card') || widget.closest('tr');
+  if (target) {
+    target.classList.remove('decision-advance', 'decision-hold', 'decision-reject');
+    if (status) target.classList.add('decision-' + status);
+  }
+}
+
+function updateCounts() {
+  const widgets = Array.from(document.querySelectorAll('[data-decision-id]'));
+  let advance = 0, hold = 0, reject = 0;
+  widgets.forEach(w => {
+    const s = decisions[w.dataset.decisionId];
+    if (s === 'advance') advance++;
+    else if (s === 'hold') hold++;
+    else if (s === 'reject') reject++;
+  });
+  const pending = widgets.length - advance - hold - reject;
+  document.getElementById('count-advance').textContent = advance;
+  document.getElementById('count-hold').textContent = hold;
+  document.getElementById('count-reject').textContent = reject;
+  document.getElementById('count-pending').textContent = pending;
+}
+
+function getCandidateInfo(widget) {
+  const card = widget.closest('.candidate-card');
+  if (card) {
+    const name = card.querySelector('.candidate-name')?.textContent.trim() || '';
+    const score = card.dataset.score || '';
+    const roleValue = card.querySelector('.role-value')?.textContent.trim() || '';
+    const roleCompany = card.querySelector('.role-company')?.textContent.trim() || '';
+    const emailLink = card.querySelector('a[href^="mailto:"]');
+    const email = emailLink ? emailLink.getAttribute('href').replace('mailto:', '') : '';
+    const phoneEl = Array.from(card.querySelectorAll('.footer-link')).find(el => el.textContent.includes('📱'));
+    const phone = phoneEl ? phoneEl.textContent.replace('📱', '').trim() : '';
+    const linkedin = card.querySelector('.linkedin-link')?.getAttribute('href') || '';
+    return { name, score, role: roleValue + (roleCompany ? ' @ ' + roleCompany : ''), email, phone, linkedin };
+  }
+  const row = widget.closest('tr');
+  if (row) {
+    const name = row.querySelector('strong')?.textContent.trim() || '';
+    const cells = row.querySelectorAll('td');
+    const role = cells[2] ? cells[2].textContent.trim().replace(/\s+/g, ' ') : '';
+    const scoreCell = row.querySelector('td:nth-last-child(3) strong');
+    const score = scoreCell ? scoreCell.textContent.trim() : '';
+    const linkedin = row.querySelector('a[target="_blank"]')?.getAttribute('href') || '';
+    return { name, score, role, email: '', phone: '', linkedin };
+  }
+  return null;
+}
+
+function buildSummaryText() {
+  const groups = { advance: [], hold: [], reject: [] };
+  document.querySelectorAll('[data-decision-id]').forEach(widget => {
+    const id = widget.dataset.decisionId;
+    const status = decisions[id];
+    if (!status) return;
+    const info = getCandidateInfo(widget);
+    if (info) groups[status].push(info);
+  });
+  let out = 'SM Digital · Skilled Intake Specialist — Client interview decisions\n';
+  out += 'Generated: ' + new Date().toISOString().slice(0, 10) + '\n\n';
+  out += '=== ADVANCE TO ENGLISH INTERVIEW (' + groups.advance.length + ') ===\n';
+  groups.advance.forEach(c => {
+    out += '- ' + c.name + ' (FIT ' + c.score + ') · ' + c.role
+      + (c.email ? ' · ' + c.email : '') + (c.phone ? ' · ' + c.phone : '') + (c.linkedin ? ' · ' + c.linkedin : '') + '\n';
+  });
+  out += '\n=== ON HOLD (' + groups.hold.length + ') ===\n';
+  groups.hold.forEach(c => { out += '- ' + c.name + ' (FIT ' + c.score + ') · ' + c.role + '\n'; });
+  out += '\n=== NOT THIS ROUND (' + groups.reject.length + ') ===\n';
+  groups.reject.forEach(c => { out += '- ' + c.name + ' (FIT ' + c.score + ')\n'; });
+  if (!groups.advance.length && !groups.hold.length && !groups.reject.length) {
+    out += '(No decisions have been made yet.)\n';
+  }
+  return out;
+}
+
+function copyDecisionSummary() {
+  const text = buildSummaryText();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => alert('Summary copied to clipboard.'),
+      () => window.prompt('Copy this summary:', text)
+    );
+  } else {
+    window.prompt('Copy this summary:', text);
+  }
+}
+
+function downloadDecisionSummary() {
+  const text = buildSummaryText();
+  const blob = new Blob([text], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'SM_Digital_Intake_Specialist_Decisions.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function resetDecisions() {
+  if (!window.confirm('Clear all interview decisions? This cannot be undone.')) return;
+  decisions = {};
+  saveDecisions();
+  document.querySelectorAll('[data-decision-id]').forEach(w => applyWidgetUI(w, w.dataset.decisionId));
+  updateCounts();
+}
+
+document.querySelectorAll('[data-decision-id]').forEach(w => applyWidgetUI(w, w.dataset.decisionId));
+updateCounts();
+</script>
+</body>
+</html>
