@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interview Assessment — Skilled Intake Specialist | SMDigital</title>
+<title>Candidate Shortlist — Skilled Intake Specialist | SMDigital</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +23,7 @@
     min-height: 100vh;
   }
 
-  /* ── TOP NAV ── */
+  /* TOP NAV */
   .top-nav {
     position: sticky; top: 0; z-index: 30;
     background: var(--white);
@@ -57,7 +57,7 @@
     letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
   }
 
-  /* ── CANDIDATE SUB-NAV ── */
+  /* CANDIDATE SUB-NAV */
   .candidate-nav-bar {
     position: sticky; top: 59px; z-index: 20;
     background: var(--gray-light);
@@ -81,12 +81,35 @@
   .candidate-tab:hover { color: var(--dark); }
   .candidate-tab.active { color: var(--orange); border-bottom-color: var(--orange); font-weight: 600; }
 
-  /* ── PAGE BODY ── */
+  /* PAGE BODY */
   .page-body {
     max-width: 980px; margin: 0 auto; padding: 32px 24px 80px;
   }
 
-  /* ── PROFILE HEADER CARD ── */
+  /* HERO SUMMARY (only on overview) */
+  .hero-summary {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-radius: 3px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--orange);
+  }
+  .hero-summary h2 {
+    font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 8px;
+  }
+  .hero-summary p {
+    font-size: 13px; color: var(--gray-text); line-height: 1.6;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 16px 32px; margin-top: 16px;
+    padding-top: 16px; border-top: 1px solid var(--gray-mid);
+  }
+  .hero-meta-item { font-size: 12px; }
+  .hero-meta-item strong { color: var(--orange); font-weight: 600; display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .hero-meta-item span { color: var(--dark); font-weight: 500; }
+
+  /* PROFILE HEADER CARD */
   .profile-header {
     background: var(--white);
     border: 1px solid var(--gray-mid);
@@ -111,6 +134,7 @@
   .av-green  { background: #f2f9e5; color: #5a8f1a; }
   .av-blue   { background: #e8f4ff; color: #2a6fa8; }
   .av-mid    { background: #ffece0; color: #b56a1e; }
+  .av-purple { background: #f0e8ff; color: #6a2a9c; }
 
   .profile-info { flex: 1; min-width: 0; }
   .head-name     { font-size: 20px; font-weight: 700; color: var(--dark); }
@@ -133,14 +157,14 @@
   .rec-solid   { background: var(--green); color: #2e5500; }
   .rec-consider { background: #fff0e5; color: #8a4000; border: 1px solid var(--orange); }
 
-  /* ── TAGS ── */
+  /* TAGS */
   .tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
   .tag { font-size: 11px; padding: 3px 8px; border-radius: 3px; border: 1px solid var(--gray-mid); color: var(--gray-text); font-weight: 500; }
   .tag-pos { border-color: var(--green); color: #3e6b0e; background: #f5fbea; }
   .tag-neg { border-color: #f5c0c0; color: #a32d2d; background: #fff5f5; }
   .tag-neu { border-color: #c8d8f0; color: #2a6fa8; background: #eef6ff; }
 
-  /* ── CONTENT GRID ── */
+  /* CONTENT GRID */
   .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 640px) { .content-grid { grid-template-columns: 1fr; } }
 
@@ -154,8 +178,8 @@
 
   /* info table */
   .info-table { width: 100%; }
-  .info-table tr td { padding: 4px 0; font-size: 13px; }
-  .info-table tr td:first-child { color: var(--gray-text); width: 50%; }
+  .info-table tr td { padding: 4px 0; font-size: 13px; vertical-align: top; }
+  .info-table tr td:first-child { color: var(--gray-text); width: 45%; padding-right: 8px; }
   .info-table tr td:last-child  { font-weight: 500; color: var(--dark); }
 
   /* bars */
@@ -172,9 +196,6 @@
   .insight-block { margin-bottom: 14px; }
   .insight-title { font-size: 12px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
   .insight-text  { font-size: 12px; color: var(--gray-text); line-height: 1.6; }
-
-  /* divider inside grid */
-  .col-divider { grid-column: 1 / -1; border: none; border-top: 1px solid var(--gray-mid); }
 
   /* verdict */
   .verdict-box {
@@ -201,10 +222,26 @@
   }
   .watch-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-size: 10px; top: 3px; }
 
-  /* video */
-  .video-card { grid-column: 1 / -1; }
-  .video-wrap { margin-top: 10px; }
-  .video-wrap video { width: 100%; border-radius: 3px; background: #000; display: block; }
+  /* media */
+  .media-card { grid-column: 1 / -1; }
+  .media-wrap { margin-top: 10px; }
+  .media-wrap audio { width: 100%; }
+  .media-note {
+    font-size: 12px; color: var(--gray-text); line-height: 1.5;
+    background: var(--gray-light); padding: 12px 14px; border-radius: 3px; border-left: 3px solid var(--green);
+  }
+
+  /* career highlights */
+  .career-item { border-left: 2px solid var(--gray-mid); padding: 0 0 12px 14px; margin-left: 4px; position: relative; }
+  .career-item:last-child { padding-bottom: 0; }
+  .career-item::before {
+    content: ''; position: absolute; left: -5px; top: 4px;
+    width: 8px; height: 8px; background: var(--orange); border-radius: 50%;
+  }
+  .career-role { font-size: 12px; font-weight: 600; color: var(--dark); }
+  .career-company { font-size: 11px; color: var(--gray-text); margin-top: 1px; }
+  .career-dates { font-size: 10px; color: var(--gray-text); margin-top: 1px; }
+  .career-desc { font-size: 11px; color: var(--gray-text); line-height: 1.5; margin-top: 4px; }
 
   /* footer */
   .page-footer {
@@ -221,7 +258,7 @@
 </head>
 <body>
 
-<!-- ── TOP NAV ── -->
+<!-- TOP NAV -->
 <div class="top-nav">
   <div class="top-nav-inner">
     <div class="brand-block">
@@ -234,24 +271,24 @@
     <div class="role-info">
       <div>
         <div class="role-title-top">Skilled Intake Specialist</div>
-        <div class="role-sub-top">Financial Account — Pre-Settlement Funding · SMDigital</div>
+        <div class="role-sub-top">Financial Account (Pre-Settlement Funding) · SMDigital</div>
       </div>
-      <div class="role-badge-top">Interview Assessment</div>
+      <div class="role-badge-top">Candidate Shortlist</div>
     </div>
   </div>
 </div>
 
-<!-- ── CANDIDATE TABS ── -->
+<!-- CANDIDATE TABS -->
 <div class="candidate-nav-bar">
   <div class="candidate-nav-inner" id="candidateTabs"></div>
 </div>
 
-<!-- ── CONTENT ── -->
+<!-- CONTENT -->
 <div class="page-body" id="pageBody"></div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <div class="page-footer">
-  <div class="footer-note">Assessment prepared by Intelsa BPO &amp; CX Recruitment · June 2026 · Confidential</div>
+  <div class="footer-note">Prepared by Intelsa BPO &amp; CX Recruitment · Confidential · SOW SM-2026-001 · Job ID 4417263190</div>
   <div class="footer-brand">
     <div class="brand-dot" style="width:22px;height:22px;"><span style="font-size:9px">In</span></div>
     <span>intelsa.com</span>
@@ -261,218 +298,324 @@
 <script>
 const candidates = [
   {
-    id: "alejandro",
-    name: "Alejandro López",
-    strip: "mid",
-    avatarClass: "av-blue",
-    initials: "AL",
-    fullName: "Alejandro López",
-    title: "Legal Assistant / Case Manager · BPO Industry",
-    location: "Pereira, Colombia · English C1",
-    scoreVal: "8",
-    scoreClass: "mid-border",
-    recClass: "rec-consider",
-    recLabel: "Recommend — Verify depth",
+    id: "overview",
+    name: "Overview",
+    isOverview: true
+  },
+  {
+    id: "josseline",
+    name: "Josseline Aquino",
+    strip: "orange",
+    avatarClass: "av-orange",
+    initials: "JA",
+    fullName: "Josseline Aquino",
+    title: "Bilingual Intake Specialist · Client Operations",
+    location: "San Salvador, El Salvador · Remote (US EST aligned)",
+    contact: "aquinoalfaro.j@hotmail.com · +503 7502 7325",
+    scoreVal: "9.0",
+    scoreClass: "",
+    recClass: "rec-strong",
+    recLabel: "Recommended · Strong",
     tags: [
-      { label: "10 yrs experience", cls: "tag-pos" },
-      { label: "PI legal assistant (3 yrs)", cls: "tag-pos" },
-      { label: "Intake + litigation phases", cls: "tag-pos" },
-      { label: "Bilingual EN/ES", cls: "tag-neu" }
+      { label: "Active PI/Crim Def intake", cls: "tag-pos" },
+      { label: "6+ years client operations", cls: "tag-pos" },
+      { label: "Clio Grow · Salesforce · Zendesk", cls: "tag-pos" },
+      { label: "Bilingual EN/ES", cls: "tag-neu" },
+      { label: "International Relations degree", cls: "tag-neu" }
     ],
     profileRows: [
-      ["Years of Experience", "10 years (BPO + legal)"],
-      ["Legal Intake (direct)", "~3 years (PI, pre-litigation)"],
-      ["Languages", "Spanish (Native) · English (C1)"],
-      ["Last Role", "Legal Assistant (PI law firm)"],
-      ["Background", "CX, collections, sales + legal"],
-      ["Location", "Colombia (Intelsa proximity)"]
+      ["Total Experience", "6+ years (CX, operations, intake)"],
+      ["Legal Intake (direct)", "~2 years (PI/WC + Criminal Defense)"],
+      ["Languages", "Spanish (native), English (fluent)"],
+      ["Current Role", "Bilingual Intake Specialist, Virtual Latinos (Crim Def firm)"],
+      ["Tools", "Clio Grow, Clio Manage, Salesforce, Zendesk, Monday, RingCentral, 8x8, Olo"],
+      ["Education", "Bachelor's in International Relations, El Salvador University"],
+      ["Availability", "Remote, full-time (validate US EST commitment)"]
     ],
     bars: [
-      { label: "Empathy & Client Handling",    val: "8/10", pct: 80, green: false },
-      { label: "Role-Specific Knowledge",       val: "8/10", pct: 80, green: false },
-      { label: "Attention to Detail",           val: "8/10", pct: 80, green: false },
-      { label: "Organization & Prioritization", val: "7/10", pct: 70, green: false },
-      { label: "English Communication",         val: "7/10", pct: 70, green: false },
-      { label: "Culture & Values Fit",          val: "7/10", pct: 70, green: false }
+      { label: "Intake Domain Fit",              val: "9/10", pct: 90, green: false },
+      { label: "Legal CRM & Tools Fluency",       val: "9/10", pct: 90, green: false },
+      { label: "Client Handling & Empathy",       val: "8/10", pct: 80, green: false },
+      { label: "Organization & Prioritization",   val: "9/10", pct: 90, green: false },
+      { label: "English Communication",           val: "8/10", pct: 80, green: false },
+      { label: "Role Longevity Signal",           val: "7/10", pct: 70, green: false }
+    ],
+    highlights: [
+      {
+        role: "Bilingual Intake Specialist (Criminal Defense)",
+        company: "Virtual Latinos · Remote (VA, MD, DC)",
+        dates: "Jan 2025 - Present",
+        desc: "Contributed to a firm-wide 75%+ hiring success rate by qualifying leads and preparing attorney-ready intake packages. Serves as primary bilingual point of contact for prospective clients during challenging legal matters. Manages confidential records in CMS with focus on data integrity and matter metadata accuracy."
+      },
+      {
+        role: "Bilingual Intake Specialist (PI &amp; Workers Comp)",
+        company: "Virtual Staffing · Remote (NC law firm)",
+        dates: "Mar 2024 - Nov 2024",
+        desc: "Full intake support for a PI and Workers Compensation firm: data entry, order processing, billing, account management, calendar coordination, appointment scheduling with follow-up, and drafting/filing legal documents."
+      },
+      {
+        role: "Customer Success Technical Specialist",
+        company: "5&amp;5 · Remote (Texas)",
+        dates: "Nov 2024 - Mar 2026",
+        desc: "End-to-end configuration for 7+ major restaurant brands (1,200+ locations), acting as primary liaison between Sales, Technical Support, and Client Operations. Maintained 99.9% uptime during Go-Live phases."
+      },
+      {
+        role: "Customer Service Lead &amp; SME",
+        company: "Modsquad · Remote (US)",
+        dates: "Nov 2024 - Present",
+        desc: "Subject Matter Expert for billing, sales, and customer support policies, supporting 50+ colleagues. Drove a 10% reduction in high-level complaints through root-cause analysis of escalations."
+      }
     ],
     insights: [
-      { title: "English Level", text: "Communicates clearly and is well understood throughout. Some filler words and informal phrasing (\"like, going with her\"), but ideas come across without confusion. Would benefit from refinement for client-facing US calls — not a disqualifier, but worth noting for coaching." },
-      { title: "Communication Skills", text: "Genuine and relatable communication style. Builds rapport naturally. In the client scenario, he described staying with the client \"step by step\" which reflects the right instinct. However, some answers trailed off or were cut short — could be nerves or interview pacing." },
-      { title: "Client Handling & Empathy", text: "Provided a strong real-world example: a post-accident client who kept escalating despite repeated explanations. His approach — patience, rephrasing, walking through the process differently — demonstrates adaptive empathy. Correctly identifies acknowledging the situation before problem-solving." },
-      { title: "Strengths", text: "Hands-on PI legal experience covering intake through litigation. Strong document-handling background (medical records, billing, contracts). Describes using personal notes + case notes for follow-up management — a practical, structured workflow. Colombia location is operationally favorable for Intelsa." },
-      { title: "Areas for Improvement", text: "Culture-fit question (\"what interests you about this role\") was notably weak — he cited working remotely and independently as primary motivators, rather than client impact or mission. This is a soft flag in a role that requires genuine care for people in crisis." }
+      { title: "Active in the exact role today", text: "Currently performing bilingual intake for a US Criminal Defense firm through Virtual Latinos, qualifying leads and building attorney-ready packages. Prior 8-month PI + Workers Compensation intake engagement adds directly relevant experience for the SMDigital account." },
+      { title: "Legal CRM depth", text: "Hands-on with Clio Grow and Clio Manage (intake-native platforms), plus Salesforce, Zendesk, Monday, RingCentral, and 8x8. Immediate ramp expected on any comparable stack SMDigital uses." },
+      { title: "Operational leadership signal", text: "Concurrent SME role at Modsquad supporting 50+ colleagues on policy and escalation resolution demonstrates senior communication ability and comfort as a reference point for peers." },
+      { title: "Bilingual bridge", text: "Explicitly cited by her current firm as a driver of prospective-client trust and satisfaction by reducing language barriers, a valuable posture for SMDigital's Spanish-speaking claimant population." }
     ],
     watchItems: [
-      "Motivation answer flagged: he cited remote work autonomy as the main draw — probe for genuine empathy with clients in financial/legal distress.",
-      "Clarify exact intake vs. case management split in his last PI role — JD needs a first-contact specialist, not a downstream case handler.",
-      "Stability: verify tenure and reason for leaving his last position before advancing."
+      "Confirm full-time exclusive dedication to the SMDigital account (currently shows multiple concurrent remote engagements).",
+      "Explore direct exposure to pre-settlement funding vertical vs. her stronger footprint in Criminal Defense and general PI intake.",
+      "Validate schedule alignment with US Eastern Time and expected onboarding start date."
     ],
-    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/k72j99JLTIybUdRyuunK/1780525037176",
+    hasMedia: false,
+    mediaNote: "English interview to be scheduled directly by SMDigital. Intelsa will coordinate the calendar invite upon request.",
     verdictClass: "",
-    verdict: "<strong>Recommendation:</strong> Recommended, with reservations. Alejandro brings real PI legal experience and a genuinely empathetic handling style, backed by a concrete client example. His main risk is the culture-fit gap surfaced in the final question — when asked about his interest in supporting clients through legal challenges, he focused on remote work benefits rather than the human dimension. For a role where SMDigital explicitly screens for emotional intelligence and genuine care, this needs probing. Strong candidate if the full interview resolves this concern."
+    verdict: "<strong>Summary:</strong> Josseline offers the strongest active-intake profile of the shortlist. She is currently performing bilingual intake for a US law firm, brings prior PI and Workers Compensation intake experience, and is fluent in the intake-native Clio Grow / Clio Manage stack. Her Modsquad SME role reflects senior operational trust. Key confirmation for the English interview: full-time exclusive commitment to the account."
   },
   {
-    id: "myrtha",
-    name: "Myrtha Chery",
-    strip: "green",
-    avatarClass: "av-green",
-    initials: "MC",
-    fullName: "Myrtha Chery",
-    title: "Legal Intake Specialist · PI / Immigration / Criminal / Divorce",
-    location: "Santo Domingo, Dominican Republic · 4 Languages",
-    scoreVal: "8",
-    scoreClass: "green-border",
-    recClass: "rec-solid",
-    recLabel: "Recommended",
+    id: "jose",
+    name: "Jose B. Alvarez",
+    strip: "orange",
+    avatarClass: "av-blue",
+    initials: "JA",
+    fullName: "Jose Bladimir Alvarez Alonzo",
+    title: "Intake Specialist · US Law Firms &amp; Enterprise CX",
+    location: "Nicaragua · Remote",
+    contact: "josebladimiralvarezalonzo@gmail.com · +505 5840 1829",
+    scoreVal: "8.5",
+    scoreClass: "",
+    recClass: "rec-strong",
+    recLabel: "Recommended · Strong",
     tags: [
-      { label: "PI intake active", cls: "tag-pos" },
-      { label: "4 languages (EN/ES/FR/Creole)", cls: "tag-pos" },
-      { label: "High empathy profile", cls: "tag-pos" },
-      { label: "Recent intake start (2024)", cls: "tag-neg" }
+      { label: "4 yrs continuous intake", cls: "tag-pos" },
+      { label: "CPLG + EasyLemon", cls: "tag-pos" },
+      { label: "Salesforce · HubSpot · Aloware", cls: "tag-pos" },
+      { label: "Enterprise CX (Microsoft, RingCentral)", cls: "tag-pos" },
+      { label: "English B2 (self-declared)", cls: "tag-neu" }
     ],
     profileRows: [
-      ["Years of Experience", "Mixed background (8+ total)"],
-      ["Legal Intake (direct)", "~1.5 yrs (PI, immigration, criminal)"],
-      ["Languages", "EN · ES · FR · Haitian Creole"],
-      ["Last Role", "Intake Specialist (PI law firm)"],
-      ["CRM Tools", "Filevine, Cleo, Neos, Salesforce, DocuSign"],
-      ["Location", "Dominican Republic (remote)"]
+      ["Total Experience", "8+ years (intake, CS, sales, onboarding)"],
+      ["Legal Intake (direct)", "4 years continuous (CPLG 2024-2026 + EasyLemon 2022-2023)"],
+      ["Languages", "Spanish (native), English (B2 self-declared)"],
+      ["Most Recent Role", "Intake Specialist, CPLG Consumer Protection Law Group (until Feb 2026)"],
+      ["Tools", "Salesforce, HubSpot, Siebel, Aloware, Lawmatics"],
+      ["Education", "System Engineering, Universidad de Ciencias Comerciales (2000-2004)"],
+      ["Availability", "Remote, full-time"]
     ],
     bars: [
-      { label: "Empathy & Client Handling",    val: "10/10", pct: 100, green: true },
-      { label: "Role-Specific Knowledge",       val: "8/10",  pct: 80,  green: true },
-      { label: "Attention to Detail",           val: "9/10",  pct: 90,  green: true },
-      { label: "Organization & Prioritization", val: "8/10",  pct: 80,  green: true },
-      { label: "English Communication",         val: "7/10",  pct: 70,  green: true },
-      { label: "Culture & Values Fit",          val: "10/10", pct: 100, green: true }
+      { label: "Intake Domain Fit",              val: "9/10", pct: 90, green: false },
+      { label: "Legal CRM &amp; Tools Fluency",  val: "8/10", pct: 80, green: false },
+      { label: "Client Handling &amp; Empathy",  val: "8/10", pct: 80, green: false },
+      { label: "Organization &amp; Prioritization", val: "8/10", pct: 80, green: false },
+      { label: "English Communication",           val: "7/10", pct: 70, green: false },
+      { label: "Role Longevity Signal",           val: "9/10", pct: 90, green: false }
+    ],
+    highlights: [
+      {
+        role: "Intake Specialist",
+        company: "CPLG Consumer Protection Law Group",
+        dates: "Feb 2024 - Feb 2026",
+        desc: "Primary point of contact for prospective clients: evaluated potential cases against established criteria and signed those cases over the phone. Handled high volume of inbound calls, coordinated intake schedules for attorneys, and managed client relations for satisfaction."
+      },
+      {
+        role: "Intake Specialist",
+        company: "EasyLemon",
+        dates: "Jan 2022 - Oct 2023",
+        desc: "Answered inbound calls and conducted client intake consultations. Signed up new clients, followed up with leads via phone/text/email, and managed lead information in Lawmatics with professional and empathetic communication."
+      },
+      {
+        role: "SDR Onboarding Specialist",
+        company: "RingCentral",
+        dates: "Feb 2021 - Dec 2021",
+        desc: "Conducted onboarding meetings, product tours, and demos. Optimized customer setup for quickest path to success, eliminating roadblocks around implementation and product knowledge to improve adoption and retention."
+      },
+      {
+        role: "Customer Service &amp; Tech Support Specialist",
+        company: "Microsoft Corporation",
+        dates: "Mar 2019 - Feb 2020",
+        desc: "Managed incoming calls and chat from customers, provided appropriate follow-up, escalated issues correctly, and demonstrated urgency for customer responses across departmental resources and procedures."
+      }
     ],
     insights: [
-      { title: "English Level", text: "Functional and enthusiastic, but the most verbally complex of the three — longer sentences, more filler, occasional repetition (\"I do love… I do love…\"). Ideas are clear and content is strong, but the communication style may feel verbose to a US attorney expecting concise intake. Coaching would tighten this significantly." },
-      { title: "Communication Skills", text: "Highly expressive and personable. She narrates client stories with genuine investment — the interview itself demonstrates her ability to hold attention and build trust. The verbosity that works in a rapport-building context could be a challenge in high-volume intake where efficiency matters." },
-      { title: "Client Handling & Empathy", text: "Outstanding. Her detailed account of the frustrated client waiting a week for a follow-up — acknowledging the emotion, sending a confirmation text, following up with co-counsel — is exactly the ownership SMDigital's brief describes. She instinctively acts on behalf of the client without being asked. Highest empathy score in the pool." },
-      { title: "Strengths", text: "Four languages is a genuine differentiator for a bilingual-focused client. Deep understanding of intake detail importance (\"if I miss one small detail, the case can turn down\"). Proactive follow-up and documentation mindset. Authentic motivation — she talks about helping people and growing the pipeline with equal enthusiasm." },
-      { title: "Areas for Improvement", text: "Direct legal intake experience is relatively recent (since 2024). Prior career spans hospitality, travel, and interpretation — strong CX background but not all in legal. English fluency under pressure could be tested further. A scripted intake call simulation would help confirm performance at volume." }
+      { title: "Four continuous years of law firm intake", text: "The most sustained direct-intake tenure in the shortlist: 2 years at CPLG plus 1.75 years at EasyLemon, both as Intake Specialist with responsibility for phone sign-ups against firm criteria. Directly transferable to SMDigital's qualification workflow." },
+      { title: "Enterprise CX pedigree", text: "Roles at Microsoft, RingCentral, and Toast provide a strong foundation in professional communication, escalation handling, and multi-channel client management. Comfortable with structured SLAs and high-volume queues." },
+      { title: "Tools alignment", text: "Salesforce, HubSpot, and Aloware are all in daily use. Prior exposure to Lawmatics (legal intake platform) means shorter onboarding on any comparable CRM in the SMDigital stack." },
+      { title: "Sign-and-close mindset", text: "CPLG role explicitly involved closing cases on the phone after evaluating against criteria, which is closest to the pre-settlement funding intake motion of qualification plus contract sign-up." }
     ],
     watchItems: [
-      "Test communication conciseness under simulated high-volume intake conditions — give a timed mock intake call scenario.",
-      "Probe the depth of her PI intake knowledge: can she explain pre-settlement funding in her own words? How does she handle a case where the attorney is unresponsive?",
-      "Explore the career transitions pre-2023 — what drove the shift from hospitality/interpretation to legal intake? Is she anchored in this field?"
+      "Validate spoken English accent for US-facing calls in the interview (self-declared B2; role calls for neutral accent).",
+      "Explore transition from consumer protection intake at CPLG to pre-settlement funding — different vertical, similar mechanics.",
+      "Confirm long-term availability and interest in a stable full-time role after his recent CPLG close-out."
     ],
-    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/2Q0IZzeSPgI7R908GpvP/1780525292069",
-    verdictClass: "green-l",
-    verdict: "<strong>Recommendation:</strong> Recommended. Myrtha's empathy profile and genuine ownership mentality are exceptional — arguably the strongest soft-skill fit in this pool. Her understanding of intake detail and documentation, combined with her proactive follow-up instincts, closely match what SMDigital describes in their culture brief. The main consideration is English fluency under speed: her style is expressive but verbose, which may need coaching for high-volume US intake calls. Her four-language capability is a real asset if the client handles Spanish-speaking or Haitian Creole-speaking claimants. Advance alongside Karina."
+    hasMedia: false,
+    mediaNote: "English interview to be scheduled directly by SMDigital. Intelsa will coordinate the calendar invite upon request.",
+    verdictClass: "",
+    verdict: "<strong>Summary:</strong> Jose Bladimir offers the deepest continuous intake tenure in the shortlist, with 4 years of direct law firm intake experience across CPLG and EasyLemon, plus enterprise CX foundations from Microsoft and RingCentral. His sign-on-the-phone experience at CPLG mirrors the pre-settlement funding intake motion. Key confirmation for the English interview: accent and pace for US client-facing calls."
   },
   {
-    id: "adriana",
-    name: "Adriana Vargas",
+    id: "david",
+    name: "David Moncada",
     strip: "green",
     avatarClass: "av-green",
-    initials: "AV",
-    fullName: "Adriana José Vargas García",
-    title: "Data Analyst · Judicial System of Nicaragua",
-    location: "Nicaragua · English C2 Advanced",
-    scoreVal: "8",
+    initials: "DM",
+    fullName: "David Jonathan Moncada",
+    title: "Case Manager · Tier 2 Specialist · US Legal &amp; Healthcare",
+    location: "San Pedro Sula, Honduras · Remote",
+    contact: "davidmoncada14@icloud.com · +504 9747 1949",
+    scoreVal: "8.0",
     scoreClass: "green-border",
     recClass: "rec-solid",
     recLabel: "Recommended",
     tags: [
-      { label: "5 yrs Judicial Branch", cls: "tag-pos" },
-      { label: "Law degree (5th year)", cls: "tag-pos" },
-      { label: "English C2", cls: "tag-pos" },
-      { label: "Data + legal hybrid", cls: "tag-pos" },
+      { label: "Currently on US legal account", cls: "tag-pos" },
+      { label: "HIPAA compliant", cls: "tag-pos" },
+      { label: "Tier 2 escalations", cls: "tag-pos" },
+      { label: "Salesforce · Zendesk · HubSpot", cls: "tag-pos" },
+      { label: "6+ yrs remote CX", cls: "tag-neu" }
+    ],
+    profileRows: [
+      ["Total Experience", "6+ years (CX, case management, intake)"],
+      ["Legal / Adjacent Intake", "Currently supports US Immigration Law Counsel (USILC) at AltiamCX"],
+      ["Languages", "Spanish (native), English (fluent)"],
+      ["Current Role", "Case Manager / Tier 2 Specialist, AltiamCX"],
+      ["Tools", "Salesforce, Zendesk, HubSpot, Remedy, Freshdesk, Intercom, Epic, Kareo, Five9, RingCentral"],
+      ["Education", "B.A. in Human Resources (in progress), CEUTEC"],
+      ["Availability", "Remote, full-time"]
+    ],
+    bars: [
+      { label: "Intake Domain Fit",              val: "7/10", pct: 70, green: true },
+      { label: "Legal CRM &amp; Tools Fluency",  val: "9/10", pct: 90, green: true },
+      { label: "Client Handling &amp; Empathy",  val: "8/10", pct: 80, green: true },
+      { label: "Organization &amp; Prioritization", val: "9/10", pct: 90, green: true },
+      { label: "English Communication",           val: "8/10", pct: 80, green: true },
+      { label: "Role Longevity Signal",           val: "8/10", pct: 80, green: true }
+    ],
+    highlights: [
+      {
+        role: "Case Manager / Tier 2 Specialist",
+        company: "AltiamCX (US Immigration Law Counsel, Remedy Meds, Healthforce Partners)",
+        dates: "Mar 2025 - Present",
+        desc: "Simultaneously manages high-volume operations across medical back-office, voice support, and legal accounts. Responsible for monitoring, organizing, and auditing legal and medical files to facilitate steady case progression and uphold quality standards. Serves as SME on complex cases and coordinates escalations across Tier 1 agents."
+      },
+      {
+        role: "Patient Care Coordinator &amp; Intake Specialist",
+        company: "Alorica (Acaria Health, RemedyMeds)",
+        dates: "Sep 2020 - Mar 2025",
+        desc: "Executed comprehensive patient/client intake, eligibility screenings, prescription coordination, and EMR updates with 100% accuracy. Achieved 95%+ CSAT scores while ensuring strict adherence to HIPAA and data protection protocols across all interactions."
+      },
+      {
+        role: "Customer Service Agent (Cricket Wireless)",
+        company: "Concentrix",
+        dates: "Apr 2019 - Feb 2020",
+        desc: "Tier 1 and Tier 2 support for wireless customers, handling billing disputes and technical upgrades. Recognized for reducing Average Handle Time by 15% while maintaining top-tier quality scores."
+      }
+    ],
+    insights: [
+      { title: "Currently on a US legal account", text: "AltiamCX assignment includes US Immigration Law Counsel (USILC), giving him active exposure to legal case lifecycle management, submission deadlines, and legal file auditing standards directly applicable to SMDigital's pre-settlement workflow." },
+      { title: "Compliance and confidentiality maturity", text: "Deep HIPAA experience from healthcare accounts (Alorica, Remedy Meds, Healthforce Partners) translates well to the sensitive-data handling requirements of a financial and legal account like pre-settlement funding." },
+      { title: "CRM and EMR breadth", text: "Salesforce, Zendesk, HubSpot, Remedy, Freshdesk, Intercom on the CRM side; Epic and Kareo on the EMR side. Fast learner across systems, comfortable navigating multi-platform workflows." },
+      { title: "Tier 2 escalation posture", text: "SME for complex cases with responsibility for coordinating across Tier 1 agents and professional stakeholders (attorneys, providers, insurance). Same coordination motion required for pre-settlement intake between attorneys, adjusters, and case managers." }
+    ],
+    watchItems: [
+      "Depth of PI and pre-settlement funding vertical knowledge vs. his current immigration + healthcare exposure.",
+      "Explore appetite for a first-contact intake role vs. his current downstream case-management posture.",
+      "Confirm US EST schedule alignment and long-term commitment."
+    ],
+    hasMedia: false,
+    mediaNote: "English interview to be scheduled directly by SMDigital. Intelsa will coordinate the calendar invite upon request.",
+    verdictClass: "green-l",
+    verdict: "<strong>Summary:</strong> David is a versatile case manager currently supporting a US legal account (USILC) plus healthcare accounts requiring HIPAA compliance. Broad CRM / EMR stack, mature compliance posture, and Tier 2 escalation experience. He is stronger as a case manager profile than as a pure first-contact intake specialist, but the transferability is high. Key exploration for the English interview: fit for the qualification-and-signup motion of pre-settlement intake."
+  },
+  {
+    id: "sofia",
+    name: "Sofia Mendez",
+    strip: "green",
+    avatarClass: "av-purple",
+    initials: "SM",
+    fullName: "Sofia Ines Mendez",
+    title: "Legal Assistant · Personal Injury &amp; Workers Compensation",
+    location: "Tegucigalpa, Honduras · Remote",
+    contact: "sofiamendez13r@outlook.com · +504 8851 5821",
+    scoreVal: "8.0",
+    scoreClass: "green-border",
+    recClass: "rec-solid",
+    recLabel: "Recommended",
+    tags: [
+      { label: "PI + WC intake", cls: "tag-pos" },
+      { label: "C2 English (EF SET validated)", cls: "tag-pos" },
+      { label: "Insurance &amp; medical records", cls: "tag-pos" },
+      { label: "Business Admin degree (in progress)", cls: "tag-neu" },
       { label: "Bilingual EN/ES", cls: "tag-neu" }
     ],
     profileRows: [
-      ["Years of Experience", "5+ years (Judicial Branch of Nicaragua)"],
-      ["Legal Intake (direct)", "Adjacent — legal documentation & case data"],
-      ["Languages", "Spanish (Native) · English (C2 Advanced)"],
-      ["Last Role", "Data Analyst — Judicial System (2020–2025)"],
-      ["Education", "Telematics Engineer + Law student (5th year)"],
-      ["Location", "Nicaragua (remote, US EST aligned)"]
+      ["Total Experience", "3+ years legal + prior CX &amp; interpretation"],
+      ["Legal Intake (direct)", "~2.75 years (Mendez y Sanchez + Romano Law Group)"],
+      ["Languages", "Spanish (native), English (C2, EF SET validated)"],
+      ["Most Recent Role", "Legal Assistant (Remote PI), Romano Law Group (until Feb 2026)"],
+      ["Tools", "Microsoft Office Suite, case management systems, calendar &amp; scheduling"],
+      ["Education", "Bachelor's in Marketing (in progress), Universidad Tecnológica de Honduras"],
+      ["Availability", "Remote, full-time"]
     ],
     bars: [
-      { label: "Empathy & Client Handling",    val: "8/10", pct: 80, green: true },
-      { label: "Role-Specific Knowledge",       val: "7/10", pct: 70, green: true },
-      { label: "Attention to Detail",           val: "9/10", pct: 90, green: true },
-      { label: "Organization & Prioritization", val: "9/10", pct: 90, green: true },
-      { label: "English Communication",         val: "9/10", pct: 90, green: true },
-      { label: "Culture & Values Fit",          val: "8/10", pct: 80, green: true }
+      { label: "Intake Domain Fit",              val: "8/10", pct: 80, green: true },
+      { label: "Legal CRM &amp; Tools Fluency",  val: "7/10", pct: 70, green: true },
+      { label: "Client Handling &amp; Empathy",  val: "9/10", pct: 90, green: true },
+      { label: "Organization &amp; Prioritization", val: "8/10", pct: 80, green: true },
+      { label: "English Communication",           val: "9/10", pct: 90, green: true },
+      { label: "Role Longevity Signal",           val: "7/10", pct: 70, green: true }
+    ],
+    highlights: [
+      {
+        role: "Remote Legal Assistant (Personal Injury)",
+        company: "Romano Law Group",
+        dates: "May 2025 - Feb 2026",
+        desc: "Assisted attorneys in managing personal injury cases from intake through settlement. Prepared and reviewed legal documents, medical records, and case files. Communicated with clients, insurance companies, and medical providers regarding case status. Maintained organized case management systems and ensured compliance with deadlines."
+      },
+      {
+        role: "Case Manager (Workers Comp &amp; PI)",
+        company: "Mendez and Sanchez Law Firm",
+        dates: "Jan 2023 - Mar 2025",
+        desc: "Conducted pre-screening interviews and collected essential case details. Verified medical and legal documents required for case processing. Maintained accurate records under confidentiality and legal requirements. Balanced employee availability, customer schedules, and load levels for appointment scheduling."
+      },
+      {
+        role: "Airbnb Trainer (Remote)",
+        company: "Airbnb",
+        dates: "Mar 2021 - Aug 2022",
+        desc: "Compiled and analyzed reports with actionable recommendations, designed streamlined processes, monitored trainee progress, and integrated new learning tools to address development needs across the team."
+      },
+      {
+        role: "Interpreter &amp; Assistant",
+        company: "NGO Global Brigades",
+        dates: "2017 - 2019",
+        desc: "Professional English-Spanish translation and interpretation, including medical and legal terminology. Effective cross-cultural communication and team collaboration in multicultural environments."
+      }
     ],
     insights: [
-      { title: "English Level", text: "Very strong. C2 self-reported and confirmed by the interview — natural cadence, rich vocabulary, minimal filler, complete sentences. Handles complex ideas fluidly (e.g. \"the experience reinforced the importance of patience and empathy\"). Fully ready for US client-facing intake calls with no coaching needed on fluency." },
-      { title: "Communication Skills", text: "Structured and articulate. Adriana consistently frames answers as: acknowledge the situation → describe her approach → tie it to outcome. Her introduction and client scenario answers show she can present herself professionally and stay on-topic. Warm and personable tone throughout." },
-      { title: "Client Handling & Empathy", text: "Strong instincts. Her example of the citizen frustrated over case deadlines shows she understands the fundamental truth: \"sometimes people just want to be heard.\" She led with active listening, explained the process clearly, then routed to the right department. This is the empathy-then-action pattern the SMDigital brief describes." },
-      { title: "Attention to Detail", text: "Outstanding — this is her defining strength. Her example of catching discrepancies in judicial case data across departments before submitting a report to judges/magistrates is exactly the kind of ownership this role needs. She caught the inconsistency, went back to source documents, verified with departments, then submitted an accurate report on time. Judicial-grade rigor." },
-      { title: "Strengths", text: "Unique hybrid profile — 5 years working directly for the Nicaraguan Judicial Branch supporting judges and magistrates, combined with a law degree in progress and a Telematics Engineering background. She understands legal documentation, procedural compliance, confidentiality, and data-driven reporting. C2 English + bilingual professional presence. Highly organized with practical experience prioritizing under judicial deadlines." },
-      { title: "Areas for Improvement", text: "No direct exposure to personal injury intake or pre-settlement funding specifically — her legal background is judicial/court-side, not law firm intake side. She'll need onboarding on the specific workflow (contingency agreements, DocuSign sign-ups, insurance verification). The gap is trainable given her legal foundation, but it's a real gap vs. candidates with active PI experience." }
+      { title: "PI + Workers Comp intake foundation", text: "Nearly three years of direct intake-through-settlement experience across two firms, both covering the PI vertical. Familiar with pre-screening, medical record verification, insurance communication, and deadline compliance." },
+      { title: "Verified C2 English", text: "EF SET (50 min) validation puts her English at C2 — the highest verified level in the shortlist. Directly relevant for US client-facing calls with sensitive claimants and attorney handoffs." },
+      { title: "Insurance and medical records fluency", text: "Regularly communicates with insurance adjusters and medical providers as a core part of both intake and case progression at Romano Law Group. Same stakeholder set that appears in pre-settlement funding workflows." },
+      { title: "Interpreter background", text: "Prior NGO experience translating medical and legal terminology adds bilingual sensitivity — an asset for empathetic communication with Spanish-speaking claimants under distress." }
     ],
     watchItems: [
-      "Confirm she understands the shift from judicial (court-side) work to plaintiff-side intake — these are different mindsets. Ask her how she'd approach representing the client's interest vs. serving neutrally as she did at the courts.",
-      "Probe her exposure to CRM tools (Filevine, Neos, Litify, etc.) — her CV mentions Microsoft Office but no legal CRM experience. Confirm learning curve tolerance.",
-      "Culture-fit answer was competent but somewhat generic (\"opportunity to help people while being part of an organized team\"). In the full interview, probe her specific motivation for pre-settlement funding — clients in financial distress waiting on legal outcomes.",
-      "Confirm her current status — CV shows her judicial role ended in 2025 and she's a 5th-year law student. Verify she is available for full-time, US EST schedule commitment."
+      "Clarify reason for departure from Romano Law Group after 9 months (recent transition, worth understanding).",
+      "Explore the scope and structure of the Mendez y Sanchez Law Firm role (family firm vs. independent scope) to calibrate depth of exposure.",
+      "Direct experience with pre-settlement funding specifically vs. traditional PI intake — likely a small onboarding gap.",
+      "Confirm US EST schedule alignment."
     ],
-    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/7pMMPDrkJW9GhkvPj2na/1780527738703",
+    hasMedia: false,
+    mediaNote: "English interview to be scheduled directly by SMDigital. Intelsa will coordinate the calendar invite upon request.",
     verdictClass: "green-l",
-    verdict: "<strong>Recommendation:</strong> Recommended. Adriana brings a differentiated profile to this pool — 5 years supporting judges and magistrates at the Nicaraguan Judicial Branch, combined with a law degree in progress and C2 English. Her attention to detail is judicial-grade (her example of catching cross-department data discrepancies before a formal report is exemplary), and her communication is polished and professional. The consideration is that her legal experience is court-side, not law firm intake side — she'll need onboarding on PI-specific workflows like contingency agreements and pre-settlement funding. Advance to the full interview: her intellectual capacity, English fluency, and legal foundation suggest she'll ramp up quickly on the vertical-specific processes."
-  },
-  {
-    id: "alejandroleon",
-    name: "Alejandro León",
-    strip: "green",
-    avatarClass: "av-green",
-    initials: "AL",
-    fullName: "Alejandro José León Euceda",
-    title: "Customer Support Specialist · CX & Intake · US Client Portfolio",
-    location: "Tegucigalpa, Honduras · Bilingual EN/ES",
-    scoreVal: "8",
-    scoreClass: "green-border",
-    recClass: "rec-solid",
-    recLabel: "Recommended",
-    tags: [
-      { label: "6+ yrs US/Canada CX", cls: "tag-pos" },
-      { label: "Intake specialist (STAFI)", cls: "tag-pos" },
-      { label: "Mission-driven fit", cls: "tag-pos" },
-      { label: "Tech Support Manager exp.", cls: "tag-pos" },
-      { label: "Bilingual EN/ES (International HS)", cls: "tag-neu" }
-    ],
-    profileRows: [
-      ["Years of Experience", "6+ years (CX, tech support, intake)"],
-      ["Legal Intake (direct)", "Brief — 2 months at STAFI as Intake/EA (2024)"],
-      ["Languages", "Spanish (Native) · English (Fluent, International HS)"],
-      ["Last Role", "Guest Support · Lululemon (InTouchCX) — 3-mo contract"],
-      ["CRM Tools", "Zendesk, Salesforce, Slack, Zoho, Quo"],
-      ["Education", "3rd year — Electronic & Telecom Engineering (UNITEC)"],
-      ["Certifications", "Cisco Networking, Huawei AI Technology"],
-      ["Notable Roles", "Comcast Xfinity, Humana Medicare, Google Nest, Vivint"]
-    ],
-    bars: [
-      { label: "Empathy & Client Handling",    val: "9/10", pct: 90, green: true },
-      { label: "Role-Specific Knowledge",       val: "6/10", pct: 60, green: true },
-      { label: "Attention to Detail",           val: "8/10", pct: 80, green: true },
-      { label: "Organization & Prioritization", val: "9/10", pct: 90, green: true },
-      { label: "English Communication",         val: "9/10", pct: 90, green: true },
-      { label: "Culture & Values Fit",          val: "9/10", pct: 90, green: true }
-    ],
-    insights: [
-      { title: "English Level", text: "Very strong. Natural cadence, professional vocabulary, and confidence handling complex ideas without hesitation (\"escalated customers for their proper needs to a higher tier level\", \"gather and analyze technical data\"). Product of an International bilingual high school in Honduras. Fully ready for US client-facing intake calls with no fluency coaching needed." },
-      { title: "Communication Skills", text: "Articulate and structured. Alejandro consistently frames answers as: situation → his approach → outcome. His storytelling is compelling and specific — he doesn't speak in generalities, he anchors every point to a concrete example." },
-      { title: "Client Handling & Empathy", text: "Outstanding real-world example: a telecommunications customer whose business phone was mistakenly disconnected. Standard process required 7–10 business days; Alejandro secured a credit approval AND reconnected the line within 24 hours. This demonstrates ownership beyond process, exactly the kind of intervention pre-settlement clients need when they're stuck waiting on their case." },
-      { title: "Attention to Detail", text: "Solid instincts. He explicitly ties attention to detail to active listening and documentation: \"document every detail as best as possible so that if a customer calls in and another agent responds, they know exactly what has already been done.\" This is the intake handoff mindset — critical for a role where clients are transferred between attorneys, adjusters, and case managers." },
-      { title: "Organization & Prioritization", text: "Practical, concrete system: he keeps a spreadsheet per customer with daily bullet points, checks them off as he completes them, and updates the customer via email, text, or call depending on need. This is a mature, self-managed workflow that doesn't rely on external tooling to function." },
-      { title: "Culture-Fit / Mission Alignment", text: "The strongest culture-fit answer in the entire candidate pool. When asked what interests him about serving clients through legal and financial challenges, he said: \"being a pillar for someone who can definitely assist them in their difficulties… when a customer goes through financial or legal concern, the emotion they express the most is worry. Being someone who can do something for them when they are most worried — that would be pretty exciting.\" This is exactly the mission-driven mindset SMDigital's brief describes." },
-      { title: "Strengths", text: "6+ years across US and Canadian client portfolios — Comcast Xfinity, Humana Medicare, Google Nest, Vivint, Lululemon. Direct financial (Xfinity billing) and healthcare (Humana appointment setter) exposure. Brief but real intake experience at STAFI covering documentation collection, needs evaluation, and confidentiality. Recent promotion to Technical Support Manager (Greenzie) shows leadership potential. Multiple 'Employee of the Month' awards and consistent 95% CSAT ratings." },
-      { title: "Areas for Improvement", text: "Direct legal intake experience is limited to two months at STAFI in 2024. His depth is in CX, tech support, and healthcare — not law firm intake specifically. He'll need onboarding on PI-specific workflows: contingency agreements, DocuSign sign-ups, insurance verification, attorney coordination. Given his learning curve on prior verticals (Comcast → Google Nest → Vivint → Humana all within short spans), the ramp should be manageable." }
-    ],
-    watchItems: [
-      "Stability check — his CV shows several 2–3 month contracts in the last 18 months (STAFI, Fi Smart Collar, Outdoorsy, Greenzie, Lululemon). Confirm these were pre-agreed contract engagements (not early exits) and validate his commitment to a longer-term role.",
-      "Probe his understanding of the pre-settlement funding vertical specifically — his brief STAFI role was more general intake/executive assistant. Ask him to walk through what he thinks the day-to-day would look like.",
-      "Engineering studies (UNITEC, expected graduation 2026) — confirm this doesn't compete with a full-time US EST commitment.",
-      "Cross-reference his 'being a pillar' motivation with a scenario where the client is angry, not just worried. How does he handle hostility, not just frustration?"
-    ],
-    videoUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/nvNx46kGeeUqNkwDBRE3/1783545792996",
-    verdictClass: "green-l",
-    verdict: "<strong>Recommendation:</strong> Recommended. Alejandro León is the strongest culture-fit candidate in this pool — his 'being a pillar' answer, unprompted, captures the exact emotional posture SMDigital's brief describes. Combined with 6+ years supporting US clients across financial, healthcare, and technical verticals, native-level English, and a concrete real-world empathy example (turning a 7–10 day process into 24 hours for a small business owner), he presents a well-rounded profile with strong mission alignment. The main gap is direct PI legal intake experience — he has 2 months at STAFI but no sustained law firm exposure. Given his demonstrated adaptability across verticals, this is a trainable gap. Advance to the full interview with a focus on validating contract stability and PI-specific onboarding readiness."
+    verdict: "<strong>Summary:</strong> Sofia brings direct PI and Workers Compensation intake experience across two firms, validated C2 English, and a strong empathetic profile from her interpreter background. Her CRM tooling is less specialized than Josseline's or Jose Bladimir's, but her core intake motion (pre-screening, medical records, insurance communication, deadline compliance) is directly applicable to the account. Key exploration for the English interview: recent Romano transition and depth on PI vertical."
   }
 ];
 
@@ -491,14 +634,61 @@ function buildTabs() {
       document.querySelectorAll('.candidate-tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       render(c.id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     nav.appendChild(btn);
   });
 }
 
-function render(id) {
-  const c = candidates.find(x => x.id === id);
-  if (!c) return;
+function renderOverview() {
+  const body = document.getElementById('pageBody');
+  const rows = candidates.filter(c => !c.isOverview).map(c => `
+    <tr style="border-bottom:1px solid var(--gray-mid);cursor:pointer;" onclick="document.querySelector('.candidate-tab[data-id=\\'${c.id}\\']').click()">
+      <td style="padding:14px 12px;font-weight:600;color:var(--dark);">${c.fullName}</td>
+      <td style="padding:14px 12px;color:var(--gray-text);font-size:12px;">${c.title}</td>
+      <td style="padding:14px 12px;text-align:center;font-weight:600;color:var(--orange);">${c.scoreVal}<span style="font-size:10px;color:var(--gray-text);font-weight:400;"> / 10</span></td>
+      <td style="padding:14px 12px;text-align:right;"><span class="rec-badge ${c.recClass}">${c.recLabel}</span></td>
+    </tr>
+  `).join('');
+
+  body.innerHTML = `
+    <div class="hero-summary">
+      <h2>Candidate Shortlist Delivery</h2>
+      <p>Five candidates advancing to the English interview stage for the Skilled Intake Specialist role on the SMDigital pre-settlement funding financial account. Each profile below includes career highlights drawn directly from the candidate's CV, an interview scorecard across the dimensions most relevant to the role, and context notes to guide the full English interview.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><strong>Role</strong><span>Skilled Intake Specialist</span></div>
+        <div class="hero-meta-item"><strong>Account</strong><span>SMDigital · Pre-Settlement Funding</span></div>
+        <div class="hero-meta-item"><strong>Schedule</strong><span>Full-time · US Eastern Time</span></div>
+        <div class="hero-meta-item"><strong>Modality</strong><span>100% Remote</span></div>
+        <div class="hero-meta-item"><strong>Job ID</strong><span>4417263190</span></div>
+        <div class="hero-meta-item"><strong>Framework</strong><span>SOW SM-2026-001</span></div>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <div class="section-label">Shortlist Overview</div>
+      <table style="width:100%;border-collapse:collapse;font-family:Poppins,sans-serif;">
+        <thead>
+          <tr style="background:var(--gray-light);border-bottom:2px solid var(--orange);">
+            <th style="padding:12px;text-align:left;font-size:11px;color:var(--dark);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Candidate</th>
+            <th style="padding:12px;text-align:left;font-size:11px;color:var(--dark);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Profile</th>
+            <th style="padding:12px;text-align:center;font-size:11px;color:var(--dark);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Score</th>
+            <th style="padding:12px;text-align:right;font-size:11px;color:var(--dark);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <p style="margin-top:14px;font-size:11px;color:var(--gray-text);font-style:italic;">Click any candidate above to open their full profile, or use the tabs at the top of the page.</p>
+    </div>
+
+    <div class="content-card" style="margin-top:16px;">
+      <div class="section-label">How to Read Each Profile</div>
+      <p style="font-size:12px;color:var(--gray-text);line-height:1.7;">Every candidate card includes: (1) core profile and contact information, (2) an interview scorecard across six dimensions on a 10-point scale, (3) career highlights drawn directly from the CV with dates and responsibilities, (4) narrative insights on domain fit and communication style, and (5) a list of points worth probing during the full English interview. One candidate (Piero Vásquez) also includes an audio recording of a preliminary AI-assisted intake screening interview conducted in English.</p>
+    </div>
+  `;
+}
+
+function renderCandidate(c) {
   const body = document.getElementById('pageBody');
 
   const tagsHtml = c.tags.map(t => `<span class="tag ${t.cls}">${t.label}</span>`).join('');
@@ -519,6 +709,15 @@ function render(id) {
     </div>
   `).join('');
 
+  const highlightsHtml = c.highlights.map(h => `
+    <div class="career-item">
+      <div class="career-role">${h.role}</div>
+      <div class="career-company">${h.company}</div>
+      <div class="career-dates">${h.dates}</div>
+      <div class="career-desc">${h.desc}</div>
+    </div>
+  `).join('');
+
   const insightsHtml = c.insights.map(i => `
     <div class="insight-block">
       <div class="insight-title">${i.title}</div>
@@ -528,15 +727,31 @@ function render(id) {
 
   const watchHtml = c.watchItems ? `
     <div class="watch-box">
-      <div class="watch-title">Points to Probe in Full Interview</div>
+      <div class="watch-title">Points to Probe in the Full Interview</div>
       <ul class="watch-list">
         ${c.watchItems.map(w => `<li>${w}</li>`).join('')}
       </ul>
     </div>
   ` : '';
 
+  const mediaHtml = c.hasMedia ? `
+    <div class="content-card media-card">
+      <div class="section-label">Preliminary Interview Recording</div>
+      <p style="font-size:12px;color:var(--gray-text);margin-bottom:10px;">${c.mediaLabel}</p>
+      <div class="media-wrap">
+        <audio src="${c.mediaUrl}" controls preload="metadata"></audio>
+      </div>
+    </div>
+  ` : `
+    <div class="content-card media-card">
+      <div class="section-label">Next Step</div>
+      <div class="media-note">${c.mediaNote}</div>
+    </div>
+  `;
+
+  const contactHtml = c.contact ? `<div class="head-location" style="margin-top:4px;font-weight:500;color:var(--orange);">${c.contact}</div>` : '';
+
   body.innerHTML = `
-    <!-- PROFILE HEADER -->
     <div class="profile-header">
       <div class="profile-strip ${c.strip}"></div>
       <div class="profile-head-inner">
@@ -545,6 +760,7 @@ function render(id) {
           <div class="head-name">${c.fullName}</div>
           <div class="head-title">${c.title}</div>
           <div class="head-location">${c.location}</div>
+          ${contactHtml}
           <div class="tags-row">${tagsHtml}</div>
         </div>
         <div class="profile-right">
@@ -557,42 +773,46 @@ function render(id) {
       </div>
     </div>
 
-    <!-- CONTENT GRID -->
     <div class="content-grid">
 
-      <!-- Profile + Scores -->
       <div class="content-card">
         <div class="section-label">Candidate Profile</div>
         <table class="info-table">${profileHtml}</table>
         <hr style="border:none;border-top:1px solid var(--gray-mid);margin:16px 0;">
-        <div class="section-label">Interview Scores</div>
+        <div class="section-label">Interview Scorecard</div>
         ${barsHtml}
       </div>
 
-      <!-- Insights -->
       <div class="content-card">
-        <div class="section-label">Interview Insights</div>
+        <div class="section-label">Career Highlights (from CV)</div>
+        ${highlightsHtml}
+      </div>
+
+      <div class="content-card full">
+        <div class="section-label">Profile Insights</div>
         ${insightsHtml}
       </div>
 
-      <!-- Watch box (conditional) -->
       ${watchHtml}
 
-      <!-- Interview Recording -->
-      <div class="content-card video-card">
-        <div class="section-label">Interview Recording</div>
-        <div class="video-wrap">
-          <video src="${c.videoUrl}" controls preload="auto"></video>
-        </div>
-      </div>
+      ${mediaHtml}
 
-      <!-- Verdict -->
       <div class="verdict-box ${c.verdictClass}">
         <p>${c.verdict}</p>
       </div>
 
     </div>
   `;
+}
+
+function render(id) {
+  const c = candidates.find(x => x.id === id);
+  if (!c) return;
+  if (c.isOverview) {
+    renderOverview();
+  } else {
+    renderCandidate(c);
+  }
 }
 
 buildTabs();
