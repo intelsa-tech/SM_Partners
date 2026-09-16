@@ -225,6 +225,10 @@
   /* media */
   .media-card { grid-column: 1 / -1; }
   .media-wrap { margin-top: 10px; }
+  .media-wrap video {
+    width: 100%; max-width: 100%; display: block;
+    border-radius: 3px; background: #000;
+  }
   .media-wrap audio { width: 100%; }
   .media-note {
     font-size: 12px; color: var(--gray-text); line-height: 1.5;
@@ -543,7 +547,7 @@ const candidates = [
       "His Raffi &amp; Associates intake tenure is recent (3 months); the interview is a good moment to confirm his long-term commitment to the intake path over BD/sales."
     ],
     hasMedia: true,
-    mediaUrl: "https://klimbup.s3.us-east-1.amazonaws.com/videos/interviews/01a0a26f-bb16-7669-b38c-33f42b443eaf-1789432264271-d5b99b76-3e92-4829-b672-005cc0259c44-mono.wav",
+    mediaUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/xd8bfDUZm2YQuu5H7THx/1789431634267?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAXYKJRXE5XXDW3HW5%2F20260916%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20260916T220137Z&amp;X-Amz-Expires=1800&amp;X-Amz-Signature=aec88aa84d3fd30c1679ec59e4465a383fd2655cd48a9d2db7b2004dd9fc8fc5&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject",
     mediaLabel: "Preliminary AI-assisted intake screening interview (~10 min, English)",
     verdictClass: "green-l",
     verdict: "<strong>Summary:</strong> Piero brings a blended profile of five years working with US-based companies, a Law degree in final stretch, direct legal intake experience at Raffi &amp; Associates, and multilingual reach across five languages. His preliminary AI-assisted screening confirmed schedule availability, genuine legal motivation, multi-CRM familiarity, and a client-first handling philosophy. Recommended for the full English interview."
@@ -825,7 +829,7 @@ function renderCandidate(c) {
       <div class="section-label">Preliminary Interview Recording</div>
       <p style="font-size:12px;color:var(--gray-text);margin-bottom:10px;">${c.mediaLabel}</p>
       <div class="media-wrap">
-        <audio src="${c.mediaUrl}" controls preload="metadata"></audio>
+        <video src="${c.mediaUrl}" controls preload="metadata" playsinline></video>
       </div>
     </div>
   ` : `
