@@ -225,6 +225,11 @@
   /* media */
   .media-card { grid-column: 1 / -1; }
   .media-wrap { margin-top: 10px; }
+  .media-wrap iframe {
+    width: 100%; aspect-ratio: 16 / 9;
+    border: none; border-radius: 3px; background: #000;
+    display: block;
+  }
   .media-wrap video {
     width: 100%; max-width: 100%; display: block;
     border-radius: 3px; background: #000;
@@ -381,8 +386,9 @@ const candidates = [
       "Explore direct exposure to pre-settlement funding vertical vs. her stronger footprint in Criminal Defense and general PI intake.",
       "Validate schedule alignment with US Eastern Time and expected onboarding start date."
     ],
-    hasMedia: false,
-    mediaNote: "English interview to be scheduled directly by SMDigital. Intelsa will coordinate the calendar invite upon request.",
+    hasMedia: true,
+    mediaUrl: "https://inteligenciatecnologica-my.sharepoint.com/personal/mdigital_intelsa_co/_layouts/15/embed.aspx?UniqueId=33018e19-8169-4bed-9531-2cfd6486a8b7&amp;embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create",
+    mediaLabel: "Preliminary AI-assisted intake screening interview (English)",
     verdictClass: "",
     verdict: "<strong>Summary:</strong> Josseline offers the strongest active-intake profile of the shortlist. She is currently performing bilingual intake for a US law firm, brings prior PI and Workers Compensation intake experience, and is fluent in the intake-native Clio Grow / Clio Manage stack. Her Modsquad SME role reflects senior operational trust. Key confirmation for the English interview: full-time exclusive commitment to the account."
   },
@@ -547,7 +553,7 @@ const candidates = [
       "His Raffi &amp; Associates intake tenure is recent (3 months); the interview is a good moment to confirm his long-term commitment to the intake path over BD/sales."
     ],
     hasMedia: true,
-    mediaUrl: "https://daily-co-call-recordings.s3.us-west-2.amazonaws.com/vapi/xd8bfDUZm2YQuu5H7THx/1789431634267?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAXYKJRXE5XXDW3HW5%2F20260916%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20260916T220137Z&amp;X-Amz-Expires=1800&amp;X-Amz-Signature=aec88aa84d3fd30c1679ec59e4465a383fd2655cd48a9d2db7b2004dd9fc8fc5&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject",
+    mediaUrl: "https://inteligenciatecnologica-my.sharepoint.com/personal/mdigital_intelsa_co/_layouts/15/embed.aspx?UniqueId=1bea4896-685b-4efd-8c2f-36132843db3a&amp;embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create",
     mediaLabel: "Preliminary AI-assisted intake screening interview (~10 min, English)",
     verdictClass: "green-l",
     verdict: "<strong>Summary:</strong> Piero brings a blended profile of five years working with US-based companies, a Law degree in final stretch, direct legal intake experience at Raffi &amp; Associates, and multilingual reach across five languages. His preliminary AI-assisted screening confirmed schedule availability, genuine legal motivation, multi-CRM familiarity, and a client-first handling philosophy. Recommended for the full English interview."
@@ -702,8 +708,9 @@ const candidates = [
       "Direct experience with pre-settlement funding specifically vs. traditional PI intake — likely a small onboarding gap.",
       "Confirm US EST schedule alignment."
     ],
-    hasMedia: false,
-    mediaNote: "English interview to be scheduled directly by SMDigital. Intelsa will coordinate the calendar invite upon request.",
+    hasMedia: true,
+    mediaUrl: "https://inteligenciatecnologica-my.sharepoint.com/personal/mdigital_intelsa_co/_layouts/15/embed.aspx?UniqueId=b47a1ef8-5e0c-4ada-b333-469ac82dc8af&amp;embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create",
+    mediaLabel: "Preliminary AI-assisted intake screening interview (English)",
     verdictClass: "green-l",
     verdict: "<strong>Summary:</strong> Sofia brings direct PI and Workers Compensation intake experience across two firms, validated C2 English, and a strong empathetic profile from her interpreter background. Her CRM tooling is less specialized than Josseline's or Jose Bladimir's, but her core intake motion (pre-screening, medical records, insurance communication, deadline compliance) is directly applicable to the account. Key exploration for the English interview: recent Romano transition and depth on PI vertical."
   }
@@ -829,7 +836,7 @@ function renderCandidate(c) {
       <div class="section-label">Preliminary Interview Recording</div>
       <p style="font-size:12px;color:var(--gray-text);margin-bottom:10px;">${c.mediaLabel}</p>
       <div class="media-wrap">
-        <video src="${c.mediaUrl}" controls preload="metadata" playsinline></video>
+        <iframe src="${c.mediaUrl}" frameborder="0" scrolling="no" allowfullscreen title="Interview recording — ${c.fullName}"></iframe>
       </div>
     </div>
   ` : `
