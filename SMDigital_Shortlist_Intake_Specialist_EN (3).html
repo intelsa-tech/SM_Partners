@@ -387,7 +387,7 @@ const candidates = [
       "Validate schedule alignment with US Eastern Time and expected onboarding start date."
     ],
     hasMedia: true,
-    mediaUrl: "https://inteligenciatecnologica-my.sharepoint.com/personal/mdigital_intelsa_co/_layouts/15/embed.aspx?UniqueId=33018e19-8169-4bed-9531-2cfd6486a8b7&amp;embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create",
+    mediaUrl: "https://player.vimeo.com/video/1228122620?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
     mediaLabel: "Preliminary AI-assisted intake screening interview (English)",
     verdictClass: "",
     verdict: "<strong>Summary:</strong> Josseline offers the strongest active-intake profile of the shortlist. She is currently performing bilingual intake for a US law firm, brings prior PI and Workers Compensation intake experience, and is fluent in the intake-native Clio Grow / Clio Manage stack. Her Modsquad SME role reflects senior operational trust. Key confirmation for the English interview: full-time exclusive commitment to the account."
@@ -553,8 +553,9 @@ const candidates = [
       "His Raffi &amp; Associates intake tenure is recent (3 months); the interview is a good moment to confirm his long-term commitment to the intake path over BD/sales."
     ],
     hasMedia: true,
-    mediaUrl: "https://inteligenciatecnologica-my.sharepoint.com/personal/mdigital_intelsa_co/_layouts/15/embed.aspx?UniqueId=1bea4896-685b-4efd-8c2f-36132843db3a&amp;embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create",
+    mediaUrl: "https://player.vimeo.com/video/1228122619?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
     mediaLabel: "Preliminary AI-assisted intake screening interview (~10 min, English)",
+    mediaAspect: "4 / 3",
     verdictClass: "green-l",
     verdict: "<strong>Summary:</strong> Piero brings a blended profile of five years working with US-based companies, a Law degree in final stretch, direct legal intake experience at Raffi &amp; Associates, and multilingual reach across five languages. His preliminary AI-assisted screening confirmed schedule availability, genuine legal motivation, multi-CRM familiarity, and a client-first handling philosophy. Recommended for the full English interview."
   },
@@ -709,7 +710,7 @@ const candidates = [
       "Confirm US EST schedule alignment."
     ],
     hasMedia: true,
-    mediaUrl: "https://inteligenciatecnologica-my.sharepoint.com/personal/mdigital_intelsa_co/_layouts/15/embed.aspx?UniqueId=b47a1ef8-5e0c-4ada-b333-469ac82dc8af&amp;embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create",
+    mediaUrl: "https://player.vimeo.com/video/1228122621?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
     mediaLabel: "Preliminary AI-assisted intake screening interview (English)",
     verdictClass: "green-l",
     verdict: "<strong>Summary:</strong> Sofia brings direct PI and Workers Compensation intake experience across two firms, validated C2 English, and a strong empathetic profile from her interpreter background. Her CRM tooling is less specialized than Josseline's or Jose Bladimir's, but her core intake motion (pre-screening, medical records, insurance communication, deadline compliance) is directly applicable to the account. Key exploration for the English interview: recent Romano transition and depth on PI vertical."
@@ -836,7 +837,7 @@ function renderCandidate(c) {
       <div class="section-label">Preliminary Interview Recording</div>
       <p style="font-size:12px;color:var(--gray-text);margin-bottom:10px;">${c.mediaLabel}</p>
       <div class="media-wrap">
-        <iframe src="${c.mediaUrl}" frameborder="0" scrolling="no" allowfullscreen title="Interview recording — ${c.fullName}"></iframe>
+        <iframe src="${c.mediaUrl}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Interview recording — ${c.fullName}"${c.mediaAspect ? ` style="aspect-ratio: ${c.mediaAspect};"` : ''}></iframe>
       </div>
     </div>
   ` : `
